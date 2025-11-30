@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="Understand and manage your anxiety with our interactive tools and resources. Take our anxiety assessment and learn coping strategies." />
+  <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage, anxiety, mental health, coping strategies" />
+  <title>Anxious Section – Psyche Portfolio</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" media="all" />
+  <link rel="stylesheet" href="styles/anxious-style.css" />
+  <link rel="stylesheet" href="styles/bootstrap-5.0.0-beta1.min.css"/>
+  <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+</head>
+<body class="anxious-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Welcome to Anxiety Support <span id="displayUser"></span> 😰</h2>
+    <p class="subtitle">Anxiety is common, but you're not alone. Let's explore tools and techniques to manage it.</p>
+
+    <!-- Video Section -->
+    <div class="video-section">
+      <h3>Understanding & Managing Anxiety</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/dknTQktH5Z0"
+          title="Understanding Anxiety Disorders"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-description">A comprehensive guide to understanding and managing anxiety disorders.</p>
+    </div>
+
+    <!-- Survey Questions -->
+    <div class="survey-section">
+      <h3>Anxiety Self-Assessment</h3>
+      <form id="anxiousSurvey" action="#" method="post">
+        <div class="question-card">
+          <p><strong>1.</strong> How often do you feel worried or anxious?</p>
+          <select class="emotion-select" name="anxietyFrequency">
+            <option value="">Select frequency...</option>
+            <option>Almost never</option>
+            <option>Several days a month</option>
+            <option>Several days a week</option>
+            <option>Almost every day</option>
+          </select>
+        </div>
+
+        <div class="question-card">
+          <p><strong>2.</strong> Rate your current anxiety level (1-10):</p>
+          <input type="range" min="1" max="10" value="5" class="emotion-slider" id="anxietyScale" name="anxietyLevel">
+          <span id="anxietyValue">5</span>/10
+        </div>
+
+        <div class="question-card">
+          <p><strong>3.</strong> What situations trigger your anxiety most?</p>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="triggers[]" value="social"> Social situations</label>
+            <label><input type="checkbox" name="triggers[]" value="work"> Work/school pressure</label>
+            <label><input type="checkbox" name="triggers[]" value="health"> Health concerns</label>
+            <label><input type="checkbox" name="triggers[]" value="future"> Future uncertainty</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p><strong>4.</strong> How does anxiety affect your daily life?</p>
+          <textarea placeholder="Describe how anxiety impacts your routine, relationships, or work..." class="reflection-textarea" name="dailyImpact"></textarea>
+        </div>
+
+        <button class="btn" type="submit">Submit Anxious Survey</button>
+      </form>
+    </div>
+
+    <!-- Coping Strategies -->
+    <div class="strategies-section">
+      <h3>Anxiety Management Techniques</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <h4>🫁 Breathing Exercises</h4>
+          <p>Practice 4-7-8 breathing: Inhale for 4 seconds, hold for 7, exhale for 8 seconds.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>📝 Grounding Techniques</h4>
+          <p>Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🏃‍♀️ Progressive Muscle Relaxation</h4>
+          <p>Tense and release muscle groups from toes to head to release physical tension.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🧘‍♀️ Mindfulness Meditation</h4>
+          <p>Focus on the present moment without judgment through guided meditation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Highlights -->
+    <div class="portfolio-section">
+      <h3>Anxiety Resources Portfolio</h3>
+      <ul class="highlight-list">
+        <li>📚 <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank">NIMH Anxiety Information</a></li>
+        <li>🌐 <a href="https://adaa.org/" target="_blank">Anxiety and Depression Association of America</a></li>
+        <li>📱 <a href="https://www.calm.com/" target="_blank">Calm App for Anxiety Management</a></li>
+        <li>💬 <a href="https://www.betterhelp.com/" target="_blank">Professional Online Therapy</a></li>
+      </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="sad.html"><button class="emotion-btn sad-btn">← Sad</button></a>
+      <a href="angry.html"><button class="emotion-btn angry-btn">Angry →</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Load username
+    const displayUser = document.getElementById("displayUser");
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      displayUser.textContent = savedUser;
+    }
+
+    // Slider functionality
+    document.getElementById('anxietyScale').addEventListener('input', function() {
+      document.getElementById('anxietyValue').textContent = this.value;
+    });
+
+    // Handle survey form submission
+    document.getElementById('anxiousSurvey').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const triggers = formData.getAll('triggers[]');
+
+      const surveyData = {
+        anxietyFrequency: formData.get('anxietyFrequency'),
+        anxietyLevel: parseInt(formData.get('anxietyLevel')),
+        triggers: triggers,
+        dailyImpact: formData.get('dailyImpact').trim(),
+        emotion: 'anxious',
+        timestamp: new Date().toISOString(),
+        source: 'anxious-page'
+      };
+
+      // Store in localStorage for the anxious-result page
+      try {
+        let anxiousData = JSON.parse(localStorage.getItem('anxiousSurveys') || '[]');
+        anxiousData.push(surveyData);
+        localStorage.setItem('anxiousSurveys', JSON.stringify(anxiousData));
+      } catch (err) {
+        localStorage.setItem('anxiousSurveys', JSON.stringify([surveyData]));
+      }
+
+      // Redirect to anxious results page
+      window.location.href = 'anxious-result.html';
+    });
+
+    // Add floating animation to cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.question-card, .strategy-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.15}s`;
+        card.classList.add('float-in');
+      });
+    });
+
+    // Breathing animation trigger
+    document.querySelectorAll('.strategy-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.animation = 'breathe 2s ease-in-out';
+        setTimeout(() => {
+          this.style.animation = '';
+        }, 2000);
+      });
+    });
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

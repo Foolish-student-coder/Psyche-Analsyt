@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="Get in touch with the Psyche Analyst team. Send us your questions, feedback, or concerns through our contact form" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage, contact, feedback" />
+  <title>Contact Us - Psyche Analyst</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" media="all" />
+</head>
+<body>
+  <div class="container">
+    <div class="contact-box">
+      <div id="left"></div>
+      <div id="right">
+        <h2 id="MyHeader">📞 Contact Us</h2>
+
+        <form id="contactForm" action="https://formspree.io/f/xeovepyj" method="POST" enctype="multipart/form-data">
+          
+          <input type="hidden" name="_subject" value="New contact from Psyche Analyst website">
+          <input type="hidden" name="_next" value="thank-you.html">
+          <input type="text" name="name" class="field" placeholder="Your Name" required>
+          <input type="email" name="email" class="field" placeholder="Your Email" required>
+          <textarea name="message" class="field area" placeholder="Message" required></textarea>
+
+          <div id="attach-wrapper">
+            <!-- name attribute is required for Formspree to receive the file -->
+            <input type="file" name="fileUpload" id="attachment" class="attach-input"
+                   accept="image/jpg,image/png,.pdf">
+          </div>
+
+          <!-- Navigation -->
+          <nav id="navigation" role="navigation" aria-label="Primary">
+            <ul>
+              <li>
+                <a href="index.html">🏠Home</a> |
+                <a href="survey.html">📜Survey</a> |
+                <a href="results.html">📈Results</a> |
+                <a href="index.html#about-us-header">📝About</a> |
+                <a href="contact.html">📞Contact</a> |
+                <a href="media-graphic.html">🎨Media</a> |
+                <a href="Faq.html">❓FAQ</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Survey fields -->
+          <div id="survey">
+            <h2>How are you feeling today?</h2>
+            <select id="feeling" name="feeling" class="field" required>
+              <option value="">-- Select --</option>
+              <option value="happy">Happy</option>
+              <option value="neutral">Neutral</option>
+              <option value="sad">Sad</option>
+              <option value="anxious">Anxious</option>
+              <option value="angry">Angry</option>
+            </select>
+
+            <div id="satisfaction-rating">
+              <label for="satisfaction">Rate your satisfaction:
+                <span id="rating-value">5</span>/10
+              </label>
+              <input type="range" id="satisfaction" name="satisfaction" min="1" max="10" value="5"
+                     oninput="updateRating(this.value)">
+            </div>
+
+            <div class="btn-group">
+              <!-- submit will post to Formspree -->
+              <button class="btn" type="submit">Send</button>
+              <button class="btn clear" type="button" onclick="clearForm()">Clear</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    function clearForm() {
+      document.querySelectorAll(".field").forEach(f => f.value = "");
+      document.getElementById("feeling").value = "";
+      document.getElementById("satisfaction").value = 5;
+      document.getElementById("rating-value").textContent = 5;
+      const fileInput = document.getElementById("fileUpload");
+      if (fileInput) fileInput.value = "";
+    }
+
+    function updateRating(value) {
+      document.getElementById("rating-value").textContent = value;
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+  
+      alert('📨 Sending your message — you will get an email confirmation if configured.');
+    });
+  </script>
+
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

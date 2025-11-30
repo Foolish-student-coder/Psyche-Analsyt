@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="Explore happiness resources, take our happiness assessment, and learn science-backed techniques to enhance your well-being through positive psychology" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage" />
+  <title>Happy Section – Psyche Portfolio</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/happy-style.css" />
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/bootstrap-5.0.0-beta1.min.css"/>
+  <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+</head>
+<body class="happy-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h2>Welcome to Happiness Resources <span id="displayUser"></span> 😊</h2>
+    <p class="subtitle">Discover the science of happiness and positive psychology to enhance your well-being.</p>
+
+    <!-- Video Section -->
+    <div class="video-section">
+      <h3>The Science of Happiness</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/oHv6vTKD6lg"
+          title="The Science of Happiness"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-description">An introduction to positive psychology and what makes people genuinely happy.</p>
+    </div>
+
+    <!-- Survey Questions -->
+    <div class="survey-section">
+      <h3>Happiness Self-Assessment</h3>
+      <form id="happySurvey" action="#" method="post">
+        <div class="question-card">
+          <p><strong>1.</strong> How happy do you feel right now? (1-10 scale)</p>
+          <input type="range" min="1" max="10" value="7" class="emotion-slider" id="happinessScale" name="happinessLevel">
+          <span id="happinessValue">7</span>/10
+        </div>
+
+        <div class="question-card">
+          <p><strong>2.</strong> How often do you experience positive emotions?</p>
+          <select class="emotion-select" name="positiveEmotions">
+            <option value="">Select frequency...</option>
+            <option>Rarely</option>
+            <option>Several times a week</option>
+            <option>Daily</option>
+            <option>Multiple times a day</option>
+          </select>
+        </div>
+
+        <div class="question-card">
+          <p><strong>3.</strong> What activities bring you the most joy?</p>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="joyActivities[]" value="exercise"> Exercise/physical activity</label>
+            <label><input type="checkbox" name="joyActivities[]" value="social"> Social connections</label>
+            <label><input type="checkbox" name="joyActivities[]" value="creative"> Creative pursuits</label>
+            <label><input type="checkbox" name="joyActivities[]" value="nature"> Nature/outdoors</label>
+            <label><input type="checkbox" name="joyActivities[]" value="learning"> Learning new things</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p><strong>4.</strong> How grateful do you feel for your life right now?</p>
+          <div class="radio-grid">
+            <label><input type="radio" name="gratitude" value="low"> Not very grateful</label>
+            <label><input type="radio" name="gratitude" value="medium"> Somewhat grateful</label>
+            <label><input type="radio" name="gratitude" value="high"> Very grateful</label>
+            <label><input type="radio" name="gratitude" value="extremely"> Extremely grateful</label>
+          </div>
+        </div>
+
+        <button class="btn" type="submit">Submit Happy Survey</button>
+      </form>
+    </div>
+
+    <!-- Coping Strategies -->
+    <div class="strategies-section">
+      <h3>Happiness Enhancement Techniques</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <h4>🌞 Practice Gratitude</h4>
+          <p>Write down 3 things you're grateful for each day to shift focus to the positive.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🤝 Build Strong Relationships</h4>
+          <p>Spend quality time with loved ones and nurture meaningful connections.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🏃‍♀️ Engage in Flow Activities</h4>
+          <p>Find activities that challenge you just enough to lose track of time.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🎯 Set Meaningful Goals</h4>
+          <p>Work toward goals that align with your values and bring a sense of purpose.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Highlights -->
+    <div class="portfolio-section">
+      <h3>Happiness Resources Portfolio</h3>
+      <ul class="highlight-list">
+        <li>📚 <a href="https://www.authentichappiness.sas.upenn.edu/" target="_blank">University of Pennsylvania Positive Psychology</a></li>
+        <li>🌐 <a href="https://greatergood.berkeley.edu/" target="_blank">Greater Good Science Center</a></li>
+        <li>📱 <a href="https://www.headspace.com/meditation/happiness" target="_blank">Headspace Happiness Meditations</a></li>
+        <li>💬 <a href="https://positivepsychology.com/what-is-positive-psychology-definition/" target="_blank">What is Positive Psychology?</a></li>
+      </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="neutral.html"><button class="emotion-btn neutral-btn">← Neutral</button></a>
+      <a href="sad.html"><button class="emotion-btn sad-btn">Sad →</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Load username
+    const displayUser = document.getElementById("displayUser");
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      displayUser.textContent = savedUser;
+    }
+
+    // Slider functionality
+    document.getElementById('happinessScale').addEventListener('input', function() {
+      document.getElementById('happinessValue').textContent = this.value;
+    });
+
+    // Handle survey form submission
+    document.getElementById('happySurvey').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const joyActivities = formData.getAll('joyActivities[]');
+
+      const surveyData = {
+        happinessLevel: parseInt(formData.get('happinessLevel')),
+        positiveEmotions: formData.get('positiveEmotions'),
+        joyActivities: joyActivities,
+        gratitude: formData.get('gratitude'),
+        emotion: 'happy',
+        timestamp: new Date().toISOString(),
+        source: 'happy-page'
+      };
+
+      // Store in localStorage for the happy-result page
+      try {
+        let happyData = JSON.parse(localStorage.getItem('happySurveys') || '[]');
+        happyData.push(surveyData);
+        localStorage.setItem('happySurveys', JSON.stringify(happyData));
+      } catch (err) {
+        localStorage.setItem('happySurveys', JSON.stringify([surveyData]));
+      }
+
+      // Redirect to happy results page
+      window.location.href = 'happy-result.html';
+    });
+
+    // Add floating animation to cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.question-card, .strategy-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.15}s`;
+        card.classList.add('float-in');
+      });
+    });
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

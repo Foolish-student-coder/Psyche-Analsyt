@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="Review your mindfulness and emotional balance survey results, track your progress in maintaining emotional equilibrium" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, mindfulness, emotional balance, survey results, mental health" />
+  <title>Neutral Survey Results – Psyche Portfolio</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" media="all" />
+  <link rel="stylesheet" href="styles/neutral-style.css" media="all" />
+</head>
+<body class="neutral-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Neutral Survey Results 😌</h2>
+    <p class="subtitle">Your responses have been recorded. Here's a summary of your mindfulness survey data.</p>
+
+    <!-- Survey Data Display -->
+    <div class="results-section">
+      <h3>Your Latest Neutral Survey Response</h3>
+      <div class="result-card" id="latestResponse">
+        <p><strong>Loading your latest response...</strong></p>
+      </div>
+    </div>
+
+    <!-- Survey History -->
+    <div class="results-section">
+      <h3>Your Neutral Survey History</h3>
+      <div class="results-grid" id="surveyHistory">
+        <p>Loading survey history...</p>
+      </div>
+    </div>
+
+    <!-- Insights Section -->
+    <div class="results-section">
+      <h3>Personal Insights</h3>
+      <div class="insights-card" id="insights">
+        <p>Complete more surveys to see personalized insights here.</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="neutral.html"><button class="emotion-btn angry-btn">← Back to Neutral Page</button></a>
+      <a href="results.html"><button class="btn">View All Results</button></a>
+    </div>
+  </div>
+
+  <script>
+    function displayNeutralResults() {
+      try {
+        const neutralData = JSON.parse(localStorage.getItem('neutralSurveys') || '[]');
+
+        if (neutralData.length === 0) {
+          document.getElementById('latestResponse').innerHTML = '<p>No survey responses found. Take the neutral survey first!</p>';
+          document.getElementById('surveyHistory').innerHTML = '<p>No survey history available.</p>';
+          return;
+        }
+
+        // Display latest response
+        const latest = neutralData[neutralData.length - 1];
+        const latestDate = new Date(latest.timestamp).toLocaleString();
+
+        document.getElementById('latestResponse').innerHTML = `
+          <h4>Latest Response - ${latestDate}</h4>
+          <p><strong>Mindfulness Frequency:</strong> ${latest.mindfulnessFrequency || 'Not specified'}</p>
+          <p><strong>Peace Level:</strong> ${latest.peaceLevel}/10</p>
+          <p><strong>Emotional Awareness:</strong> ${latest.awareness || 'Not specified'}</p>
+          <p><strong>Balancing Activities:</strong> ${latest.balancingActivities || 'Not specified'}</p>
+        `;
+
+        // Display survey history
+        const historyContainer = document.getElementById('surveyHistory');
+        historyContainer.innerHTML = '';
+
+        // Show last 5 responses
+        const recentResponses = neutralData.slice(-5).reverse();
+
+        recentResponses.forEach((response, index) => {
+          const responseDate = new Date(response.timestamp).toLocaleString();
+          const card = document.createElement('div');
+          card.className = 'result-card';
+          card.innerHTML = `
+            <h5>Response #${neutralData.length - index} - ${responseDate}</h5>
+            <p><strong>Peace Level:</strong> ${response.peaceLevel}/10</p>
+            <p><strong>Mindfulness:</strong> ${response.mindfulnessFrequency || 'Not specified'}</p>
+            <p><strong>Awareness:</strong> ${response.awareness || 'Not specified'}</p>
+          `;
+          historyContainer.appendChild(card);
+        });
+
+        // Generate insights
+        generateNeutralInsights(neutralData);
+
+      } catch (err) {
+        console.error('Error loading neutral survey data:', err);
+        document.getElementById('latestResponse').innerHTML = '<p>Error loading survey data.</p>';
+      }
+    }
+
+    function generateNeutralInsights(data) {
+      if (data.length < 2) {
+        document.getElementById('insights').innerHTML = '<p>Complete more surveys to see insights about your mindfulness patterns.</p>';
+        return;
+      }
+
+      const insights = [];
+      const avgPeace = data.reduce((sum, d) => sum + d.peaceLevel, 0) / data.length;
+
+      insights.push(`Average peace level: ${avgPeace.toFixed(1)}/10`);
+
+      const highPeaceDays = data.filter(d => d.peaceLevel >= 7).length;
+      if (highPeaceDays > 0) {
+        insights.push(`${highPeaceDays} days with high peace levels (7+)`);
+      }
+
+      // Analyze mindfulness frequency
+      const mindfulnessCounts = data
+        .map(d => d.mindfulnessFrequency)
+        .filter(Boolean)
+        .reduce((acc, freq) => {
+          acc[freq] = (acc[freq] || 0) + 1;
+          return acc;
+        }, {});
+
+      if (Object.keys(mindfulnessCounts).length > 0) {
+        const mostCommonMindfulness = Object.entries(mindfulnessCounts).sort(([,a], [,b]) => b - a)[0];
+        insights.push(`Most common mindfulness practice: ${mostCommonMindfulness[0]} (${mostCommonMindfulness[1]} times)`);
+      }
+
+      // Analyze awareness patterns
+      const awarenessCounts = data
+        .map(d => d.awareness)
+        .filter(Boolean)
+        .reduce((acc, awareness) => {
+          acc[awareness] = (acc[awareness] || 0) + 1;
+          return acc;
+        }, {});
+
+      if (Object.keys(awarenessCounts).length > 0) {
+        const mostCommonAwareness = Object.entries(awarenessCounts).sort(([,a], [,b]) => b - a)[0];
+        insights.push(`Most common awareness level: ${mostCommonAwareness[0]} (${mostCommonAwareness[1]} times)`);
+      }
+
+      document.getElementById('insights').innerHTML = `
+        <h4>Your Mindfulness Patterns</h4>
+        <ul>
+          ${insights.map(insight => `<li>${insight}</li>`).join('')}
+        </ul>
+        <p><em>These insights are based on your survey responses. Regular mindfulness practice can help maintain emotional balance.</em></p>
+      `;
+    }
+
+    // Load results on page load
+    document.addEventListener('DOMContentLoaded', displayNeutralResults);
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

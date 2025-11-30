@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="Explore mindfulness and emotional balance in our neutral emotions section. Take our mindfulness assessment and discover techniques for inner peace." />
+  <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage, mindfulness, emotional balance, meditation" />
+  <title>Neutral Section – Psyche Portfolio</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" media="all" />
+  <link rel="stylesheet" href="styles/neutral-style.css" />
+  <link rel="stylesheet" href="styles/bootstrap-5.0.0-beta1.min.css"/>
+  <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+</head>
+<body class="neutral-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Welcome to Mindfulness & Balance <span id="displayUser"></span> 😌</h2>
+    <p class="subtitle">Neutral emotions are a natural part of life. Let's explore mindfulness and emotional balance.</p>
+
+    <!-- Video Section -->
+    <div class="video-section">
+      <h3>Mindfulness & Emotional Balance</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/inpok4MKVLM"
+          title="Mindfulness Meditation Guide"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-description">A gentle introduction to mindfulness meditation and emotional awareness.</p>
+    </div>
+
+    <!-- Survey Questions -->
+    <div class="survey-section">
+      <h3>Mindfulness Self-Assessment</h3>
+      <form id="neutralSurvey" action="#" method="post">
+        <div class="question-card">
+          <p><strong>1.</strong> How often do you practice mindfulness or meditation?</p>
+          <select class="emotion-select" name="mindfulnessFrequency">
+            <option value="">Select frequency...</option>
+            <option>Never</option>
+            <option>A few times a month</option>
+            <option>A few times a week</option>
+            <option>Daily</option>
+          </select>
+        </div>
+
+        <div class="question-card">
+          <p><strong>2.</strong> Rate your current sense of inner peace (1-10):</p>
+          <input type="range" min="1" max="10" value="5" class="emotion-slider" id="peaceScale" name="peaceLevel">
+          <span id="peaceValue">5</span>/10
+        </div>
+
+        <div class="question-card">
+          <p><strong>3.</strong> How aware are you of your emotions throughout the day?</p>
+          <div class="radio-grid">
+            <label><input type="radio" name="awareness" value="low"> Rarely notice</label>
+            <label><input type="radio" name="awareness" value="medium"> Sometimes aware</label>
+            <label><input type="radio" name="awareness" value="high"> Often mindful</label>
+            <label><input type="radio" name="awareness" value="very-high"> Very aware</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p><strong>4.</strong> What helps you feel most balanced and centered?</p>
+          <textarea placeholder="Describe activities or practices that bring you emotional balance..." class="reflection-textarea" name="balancingActivities"></textarea>
+        </div>
+
+        <button class="btn" type="submit">Submit Neutral Survey</button>
+      </form>
+    </div>
+
+    <!-- Coping Strategies -->
+    <div class="strategies-section">
+      <h3>Mindfulness & Balance Techniques</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <h4>🧘‍♀️ Mindful Breathing</h4>
+          <p>Focus on your breath for 5 minutes. Notice the sensation of air entering and leaving your body.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🌳 Nature Connection</h4>
+          <p>Spend time in nature. Observe the sights, sounds, and sensations around you without judgment.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>📖 Gratitude Journaling</h4>
+          <p>Write down 3 things you're grateful for each day to cultivate positive awareness.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🎯 Present Moment Focus</h4>
+          <p>Practice being fully present in routine activities like eating, walking, or washing dishes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Highlights -->
+    <div class="portfolio-section">
+      <h3>Mindfulness Resources Portfolio</h3>
+      <ul class="highlight-list">
+        <li>📚 <a href="https://www.mindful.org/" target="_blank">Mindful.org - Mindfulness Resources</a></li>
+        <li>🌐 <a href="https://www.headspace.com/meditation/mindfulness" target="_blank">Headspace Mindfulness</a></li>
+        <li>📱 <a href="https://www.calm.com/" target="_blank">Calm App for Meditation</a></li>
+        <li>💬 <a href="https://www.betterhelp.com/advice/mindfulness/" target="_blank">Mindfulness Therapy</a></li>
+      </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="angry.html"><button class="emotion-btn angry-btn">← Angry</button></a>
+      <a href="happy.html"><button class="emotion-btn happy-btn">Happy →</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Load username
+    const displayUser = document.getElementById("displayUser");
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      displayUser.textContent = savedUser;
+    }
+
+    // Slider functionality
+    document.getElementById('peaceScale').addEventListener('input', function() {
+      document.getElementById('peaceValue').textContent = this.value;
+    });
+
+    // Handle survey form submission
+    document.getElementById('neutralSurvey').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      const surveyData = {
+        mindfulnessFrequency: formData.get('mindfulnessFrequency'),
+        peaceLevel: parseInt(formData.get('peaceLevel')),
+        awareness: formData.get('awareness'),
+        balancingActivities: formData.get('balancingActivities').trim(),
+        emotion: 'neutral',
+        timestamp: new Date().toISOString(),
+        source: 'neutral-page'
+      };
+
+      // Store in localStorage for the neutral-result page
+      try {
+        let neutralData = JSON.parse(localStorage.getItem('neutralSurveys') || '[]');
+        neutralData.push(surveyData);
+        localStorage.setItem('neutralSurveys', JSON.stringify(neutralData));
+      } catch (err) {
+        localStorage.setItem('neutralSurveys', JSON.stringify([surveyData]));
+      }
+
+      // Redirect to neutral results page
+      window.location.href = 'neutral-result.html';
+    });
+
+    // Add floating animation to cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.question-card, .strategy-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.12}s`;
+        card.classList.add('float-in');
+      });
+    });
+
+    // Gentle ripple effect for mindfulness
+    document.querySelectorAll('.strategy-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.animation = 'ripple 2s ease-out';
+        setTimeout(() => {
+          this.style.animation = '';
+        }, 2000);
+      });
+    });
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

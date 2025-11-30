@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="Learn to manage anger effectively with our interactive tools and resources. Take our anger assessment and discover healthy coping strategies." />
+  <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage, anger management, mental health, emotional control" />
+  <title>Angry Section – Psyche Portfolio</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" media="all" />
+  <link rel="stylesheet" href="styles/angry-style.css" />
+  <link rel="stylesheet" hred="styles/bootstrap-5.0.0-beta1.min.css"/>
+  <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+</head>
+<body class="angry-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Welcome to Anger Management <span id="displayUser"></span> 😠</h2>
+    <p class="subtitle">Anger is a natural emotion. Let's learn healthy ways to express and manage it constructively.</p>
+
+    <!-- Video Section -->
+    <div class="video-section">
+      <h3>Understanding & Managing Anger</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/3bKuoH8CkFc"
+          title="Understanding Anger"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-description">Learn about the psychology of anger and effective management strategies.</p>
+    </div>
+
+    <!-- Survey Questions -->
+    <div class="survey-section">
+      <h3>Anger Self-Assessment</h3>
+      <form id="angrySurvey" action="#" method="post">
+        <div class="question-card">
+          <p><strong>1.</strong> How often do you feel angry or frustrated?</p>
+          <select class="emotion-select" name="angerFrequency">
+            <option value="">Select frequency...</option>
+            <option>Rarely</option>
+            <option>A few times a week</option>
+            <option>Daily</option>
+            <option>Several times a day</option>
+          </select>
+        </div>
+
+        <div class="question-card">
+          <p><strong>2.</strong> Rate your current anger level (1-10):</p>
+          <input type="range" min="1" max="10" value="5" class="emotion-slider" id="angerScale" name="angerLevel">
+          <span id="angerValue">5</span>/10
+        </div>
+
+        <div class="question-card">
+          <p><strong>3.</strong> What typically triggers your anger?</p>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="triggers[]" value="work"> Work stress</label>
+            <label><input type="checkbox" name="triggers[]" value="relationships"> Relationship issues</label>
+            <label><input type="checkbox" name="triggers[]" value="traffic"> Traffic/delays</label>
+            <label><input type="checkbox" name="triggers[]" value="unfairness"> Perceived unfairness</label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p><strong>4.</strong> How do you usually express your anger?</p>
+          <div class="radio-grid">
+            <label><input type="radio" name="expression" value="internal"> Keep it inside</label>
+            <label><input type="radio" name="expression" value="verbal"> Express verbally</label>
+            <label><input type="radio" name="expression" value="physical"> Physical expression</label>
+            <label><input type="radio" name="expression" value="constructive"> Constructive outlets</label>
+          </div>
+        </div>
+
+        <button class="btn" type="submit">Submit Angry Survey</button>
+      </form>
+    </div>
+
+    <!-- Coping Strategies -->
+    <div class="strategies-section">
+      <h3>Healthy Anger Management Techniques</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <h4>⏸️ Take a Timeout</h4>
+          <p>Remove yourself from the situation for a few minutes to cool down before responding.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🗣️ Use "I" Statements</h4>
+          <p>Express feelings constructively: "I feel frustrated when..." instead of blaming.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🏃‍♀️ Physical Release</h4>
+          <p>Channel energy through exercise, sports, or activities like hitting a pillow.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>📝 Journaling</h4>
+          <p>Write down your thoughts and feelings to process and understand your anger.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Highlights -->
+    <div class="portfolio-section">
+      <h3>Anger Management Resources Portfolio</h3>
+      <ul class="highlight-list">
+        <li>📚 <a href="https://www.apa.org/topics/anger" target="_blank">APA Anger Management</a></li>
+        <li>🌐 <a href="https://www.helpguide.org/articles/anxiety/anger-management.htm" target="_blank">HelpGuide Anger Resources</a></li>
+        <li>📱 <a href="https://www.headspace.com/meditation/anger" target="_blank">Headspace Anger Meditations</a></li>
+        <li>💬 <a href="https://www.betterhelp.com/advice/anger/" target="_blank">Professional Anger Counseling</a></li>
+      </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="anxious.html"><button class="emotion-btn anxious-btn">← Anxious</button></a>
+      <a href="neutral.html"><button class="emotion-btn neutral-btn">Neutral →</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Load username
+    const displayUser = document.getElementById("displayUser");
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      displayUser.textContent = savedUser;
+    }
+
+    // Slider functionality
+    document.getElementById('angerScale').addEventListener('input', function() {
+      document.getElementById('angerValue').textContent = this.value;
+    });
+
+    // Handle survey form submission
+    document.getElementById('angrySurvey').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const triggers = formData.getAll('triggers[]');
+
+      const surveyData = {
+        angerFrequency: formData.get('angerFrequency'),
+        angerLevel: parseInt(formData.get('angerLevel')),
+        triggers: triggers,
+        expression: formData.get('expression'),
+        emotion: 'angry',
+        timestamp: new Date().toISOString(),
+        source: 'angry-page'
+      };
+
+      // Store in localStorage for the angry-result page
+      try {
+        let angryData = JSON.parse(localStorage.getItem('angrySurveys') || '[]');
+        angryData.push(surveyData);
+        localStorage.setItem('angrySurveys', JSON.stringify(angryData));
+      } catch (err) {
+        localStorage.setItem('angrySurveys', JSON.stringify([surveyData]));
+      }
+
+      // Redirect to angry results page
+      window.location.href = 'angry-result.html';
+    });
+
+    // Floating animation to cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.question-card, .strategy-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.classList.add('float-in');
+      });
+    });
+
+    // Pulsing animation for anger intensity
+    document.querySelectorAll('.strategy-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.animation = 'pulse 1.5s ease-in-out';
+        setTimeout(() => {
+          this.style.animation = '';
+        }, 1500);
+      });
+    });
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

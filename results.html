@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Carl James M. Ayag" />
+    <meta name="description" content="View your personalized survey results and emotional patterns tracked over time through our psychology-inspired analysis" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage, survey results, emotional tracking" />
+    <title>Psyche Analyst – Results</title>
+    <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+    <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+    <link rel="stylesheet" href="styles/styles.css" media="all" />
+    <link rel="stylesheet" href="styles/animated.css" media="all" />
+    <link rel="stylesheet" href="styles/result.css" media="all" />
+    <link rel="stylesheet" href="styles/bootstrap-5.0.0-beta1.min.css"/>
+    <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+  </head>
+  <body>
+    <div id="header">
+      <header>
+        <h1><strong>Results</strong></h1>
+        <p>These reflections are generated from surveys saved in your browser.</p>
+      </header>
+    </div>
+
+    <nav id="navigation" role="navigation" aria-label="Primary">
+      <ul>
+        <li>
+          <a href="index.html">🏠Home</a> |
+          <a href="survey.html">📜Surveys</a> |
+          <a href="results.html" aria-current="page">📈Results</a> |
+          <a href="index.html#about-us-header">📝About</a> |
+          <a href="contact.html">📞Contact</a> |
+          <a href="media-graphic.html">🎨Media</a> |
+          <a href="Faq.html">❓FAQ</a>
+        </li>
+      </ul>
+    </nav>
+  <!-- Recent History Section -->
+    <main id="results" aria-live="polite">
+      <h2>Survey Results Preview</h2>
+      <div class="results-grid" id="summaryGrid"></div>
+    
+      <section >
+        <h3>Recent Entries</h3>
+        <ul id="recentList"></ul>
+        <div>
+          <button class="btn" id="clearBtn">Clear My Local Data</button>
+        </div>
+      </section>
+
+      <section >
+        <h3>Portfolio by Emotion</h3>
+        <div class="results-grid" id="byEmotion"></div>
+      </section>
+    </main>
+
+    
+    <!-- JS Script Section -->
+    <script>
+      function summarize(entries){
+        var counts = { happy:0, neutral:0, sad:0, anxious:0 };
+        var energySum = 0, energyCount = 0;
+        entries.forEach(function(e){
+          if (e.feeling && counts.hasOwnProperty(e.feeling)) counts[e.feeling]++;
+          if (typeof e.energy === 'number') { energySum += e.energy; energyCount++; }
+        });
+        var avgEnergy = energyCount ? (energySum/energyCount).toFixed(1) : 'N/A';
+        return { counts: counts, avgEnergy: avgEnergy };
+      }
+
+      function render(){
+        var data = [];
+        try { data = JSON.parse(localStorage.getItem('surveys')||'[]'); } catch(e) { data = []; }
+        var summary = summarize(data);
+
+        var grid = document.getElementById('summaryGrid');
+        grid.innerHTML = '';
+        var cards = [
+          { label:'😊 Happy', value: summary.counts.happy },
+          { label:'😐 Neutral', value: summary.counts.neutral },
+          { label:'😢 Sad', value: summary.counts.sad },
+          { label:'😟 Anxious', value: summary.counts.anxious },
+          { label:'⚡ Avg Energy', value: summary.avgEnergy }
+        ];
+        cards.forEach(function(c){
+          var div = document.createElement('div');
+          div.className = 'result-card';
+          div.textContent = c.label + ': ' + c.value;
+          grid.appendChild(div);
+        });
+
+        var recent = document.getElementById('recentList');
+        recent.innerHTML = '';
+        data.slice(-5).reverse().forEach(function(e){
+          var li = document.createElement('li');
+          var when = new Date(e.createdAt).toLocaleString();
+          li.textContent = '['+when+'] feeling="'+(e.feeling||'')+'" energy='+('energy' in e? e.energy:'-')+ (e.worry? ' — '+e.worry: '');
+          recent.appendChild(li);
+        });
+
+        // Group by emotion portfolio
+        var groups = data.reduce(function(acc, e){
+          var key = e.feeling || 'unspecified';
+          (acc[key] = acc[key] || []).push(e);
+          return acc;
+        }, {});
+        var byEmotion = document.getElementById('byEmotion');
+        byEmotion.innerHTML = '';
+        Object.keys(groups).forEach(function(key){
+          var card = document.createElement('div');
+          card.className = 'result-card';
+          var title = key === 'unspecified' ? 'Unspecified' : key.charAt(0).toUpperCase()+key.slice(1);
+          var list = groups[key].slice(-5).reverse().map(function(e){
+            var when = new Date(e.createdAt).toLocaleString();
+            return '['+when+'] ' + (e.worry && e.worry.length ? e.worry : '(no note)');
+          }).join('\n');
+          card.textContent = title + ' ('+groups[key].length+')' + '\n' + list;
+          byEmotion.appendChild(card);
+        });
+      }
+
+      document.getElementById('clearBtn').addEventListener('click', function(){
+        if (confirm('This will clear surveys stored in your browser. Continue?')){
+          localStorage.removeItem('surveys');
+          render();
+        }
+      });
+
+      render();
+    </script>
+    <!-- Benefits x About Section -->
+    <section class="paragraph-section" id="about-paragraph">
+  <div>
+    <h2><strong>Survey Results & Emotional Insights</strong></h2>
+    <div class="Benefit">
+      <img src="assets/COunseling.webp" alt="Persona Life Illustration"/>
+        <p>
+           The Survey Results section transforms collected responses into meaningful information — turning raw emotional data into patterns of understanding. Each survey you complete contributes to a growing reflection of the mind’s landscape, allowing both you and others to visualize how emotion flows across experience.
+        </p>
+    </div>
+    <br/>
+    <div class="Benefit"> 
+      <img src="assets/Life.webp" alt="Life Emotion"/>
+        <p>
+           Here, individual answers evolve into structured insights. Numbers, words, and emotional cues are analyzed to reveal recurring themes — patterns of happiness, sadness, anxiety, anger, or emotional neutrality. These results are not simply statistics, but living reflections of human psychology rendered into visual form.
+        </p>
+    </div>
+
+    <br/>
+    <div class="Benefit">
+      <img src="assets/Header Image foot.webp" alt="Data Pattern Analysis"/>
+        <p>
+          Through data visualization, you can preview your results and compare them to collective emotional trends. This helps you identify shifts in your mindset, emotional stability, and growth over time. Each chart or graph symbolizes more than data; it is a mirror of the psyche evolving through awareness.
+        </p>
+    </div>
+    <br/>
+    <div class="Benefit">
+      <img src="assets/Van.webp" alt="Privacy and Anonymity"/>
+        <p>
+         The system prioritizes privacy and respect — your responses remain anonymous while contributing to broader understanding. Your personal journey becomes part of a shared vision: a digital map of human emotion, built from honest self-reflection and psychological insight.
+        </p>
+    </div>
+    <br/>
+    <div class="Benefit">
+      <img src="assets/Motivation.webp" alt="Motivation and Growth"/>
+        <p>
+          As data turns into knowledge, and knowledge into wisdom, this page serves as a testament to the beauty of introspection. Numbers may measure emotion, but meaning gives them soul. Every result, every point of data, is a story waiting to be understood.
+        </p>
+      </div>
+  </div>
+</section>
+<!-- Footer Section -->
+<div id="footer" role="contentinfo">
+  <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+  <p>Author: Carl James M. Ayag</p>
+  <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+</div>
+  </body>
+  </html>
+
+

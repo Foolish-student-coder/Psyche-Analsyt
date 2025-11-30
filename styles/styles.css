@@ -1,0 +1,735 @@
+/* Index Page CSS */
+
+/* --- HEADER --- */
+#header {
+  background: linear-gradient(135deg, rgba(159,43,104,0.9), rgba(132,88,179,0.9));
+  color: #3c1b7d;
+  margin: 0px;
+  padding: 20px;
+  border-style: solid black;
+  animation: fadeInHeader 800ms ease-out;
+  background-blend-mode: overlay;
+  text-align: center; 
+  
+}
+#image-logo {
+  width: 100%;
+  height: auto;
+  border: 2px;
+  border-radius: 8px;
+  object-fit: cover;
+  min-width: 465px;
+}
+
+
+/* --- NAVIGATION BAR --- */
+#navigation {
+  background: linear-gradient(90deg, #f3e8ff, #e9d7fe);
+  color: black;
+  padding: 16px 0;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  background-blend-mode: overlay;
+  opacity: 0.6;
+}
+/* --Navigation for the unordered list */
+#navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* --Para sa list nang navigation */
+#navigation li {
+  display: inline;
+  font-weight: bold;
+}
+/* The text of the navigation */
+#navigation a {
+  color: black;
+  text-decoration: none;
+  padding: 0 8px;
+}
+
+#navigation a:hover {
+  text-decoration: underline;
+  color:darkblue;
+  text-decoration-color: #3c1b7d;
+  
+}
+
+
+/* Keyboard focus visibility */
+a:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible, input:focus-visible {
+  outline: 3px solid #46e2d5;
+  outline-offset: 2px;
+}
+
+/* Skip link (for keyboard users) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #46e2d5;
+  color: #000 !important;
+  border-radius: 8px;
+}
+
+/* --- MAIN LAYOUT: ARTICLE AND SURVEY SIDE BY SIDE --- */
+#main-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0;
+}
+
+/* --- ARTICLE SECTION --- */
+#article {
+  background-color: #d0bdf4;
+  color: black;
+  padding: 40px 20px 20px 20px;
+  box-sizing: border-box;
+  flex: 1;
+  min-height: 100vh;
+  opacity: 0.6;
+}
+
+/* --- SURVEY SECTION --- */
+#survey {
+  width: 40%;
+  min-width: 320px;
+  max-width: 500px;
+  background-color: #A569BD;
+  color: #3c1b7d;
+  padding: 30px;
+  box-sizing: border-box;
+  margin-top: 0;
+  border-radius: 0 15px 15px 0;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  opacity: 0.9;
+}
+
+
+
+/* --- REFLECTION FEATURE --- */
+#reflection {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #d0bdf4;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  opacity: 0.8;
+}
+
+#reflection h2 {
+  color: #6E73E8;
+  margin-bottom: 10px;
+}
+
+#reflection p {
+  margin-bottom: 10px;
+}
+
+.contact-btn {
+  background-color: #46e2d5;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: .3s;
+}
+
+.contact-btn:hover {
+  background-color: #2fb8aa;
+  color: white;
+}
+
+/* --- RESULTS PREVIEW --- */
+#results,#about-us-header, #about-paragraph {
+  padding: 40px 20px;
+  background-color: #f3e8ff;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.result-card {
+  background-color: #d0bdf4;
+  opacity: 0.9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  font-weight: bold;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+/* BUTTON ON SUBMIT MEDIA */
+#submission {
+  padding: 10px 20px;
+  margin-top: 10px;
+
+}
+
+/* --- TIPS SECTION --- */
+#tips, #paragraph, .submit-cta, main {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e9d7fe, #d0bdf4);
+  color: black;
+  opacity: 0.8;
+}
+
+#tips h2, #paragraph h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#tips ul {
+  list-style-type: "💡 ";
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* --- QUOTE SECTION --- */
+#quote {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #d0bdf4, #c6a7e2);
+  color: black;
+  text-align: center;
+  opacity: 0.85;
+}
+
+#quote blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#quote cite {
+  display: block;
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #e0e0e0;
+  
+}
+
+
+
+/* --- FOOTER --- */
+#footer {
+  background: linear-gradient(135deg, #e9d7fe, #d0bdf4);
+  color: black;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  opacity: 0.6;
+}
+
+/* --- RESPONSIVE LAYOUT --- */
+@media screen and (max-width:880px){
+  #main-row {
+    flex-direction: column;
+  }
+  #article, #survey {
+    width: 100%;
+    min-width: unset;
+  }
+
+  #survey {
+    max-width: none;
+    border-radius: 0;
+    margin-top: 20px;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* --- BLENDED PAGE BACKGROUND --- */
+body {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 20% 10%, #f7ecff, #f3e8ff), linear-gradient(180deg, #fdfbff, #efe7fb);
+  background-attachment: fixed;
+  color: #3c1b7d;
+  background-image: url(../images/Psycholgy\ art.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay for blending image and color */
+/* soft floating shapes */
+
+body::before, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Background gradient effects */
+body::before {
+  background: radial-gradient(600px 300px at 80% -10%, rgba(132,88,179,0.15), transparent),
+              radial-gradient(500px 250px at -10% 80%, rgba(159,43,104,0.12), transparent);
+  animation: floatBg 14s ease-in-out infinite alternate;
+  
+}
+
+/* Background image with opacity applied */
+body::after {
+  background-image: url(../images/Psycholgy\ art.jpg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7; /* Adjust opacity of the background image */
+}
+
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+#article p, #tips ul, #quote blockquote {
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+/* --- CONTACT PAGE CSS --- */
+@font-face {
+  font-family: "Quicksand";
+  src: url(Quicksand/static/Quicksand-Regular.ttf) format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 100px;
+  
+}
+
+.container:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/bg.png") no-repeat center;
+  background-size: cover;
+  z-index: -1;
+  filter: blur(50px);
+}
+/* Contact Page Box */
+.contact-box {
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #d0bdf4;
+  opacity: 0.9;
+  box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.5);
+}
+/* Left Box */
+#left {
+  height: 100%;
+  background: url(../images/sad\ drawing.png) no-repeat center;
+  background-size: cover;
+}
+/* Right Box */
+#right {
+  padding: 25px 40px;
+}
+
+h2 {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  border-radius: 2px;
+  background-color: #46e2d5;
+  opacity: 0.7;
+}
+
+.field {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-color: rgba(230, 230, 230, 0.6);
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+  transition: .3s;
+  opacity: 0.9;
+}
+
+.field:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.field:focus {
+  background-color: #d0bdf4;
+  border: 2px solid #CC6CE7;
+}
+
+.area {
+  min-height: 130px;
+}
+
+#attach-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  background-color: #514d6b;
+}
+
+#feeling {
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  background-color: #6E73E8;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: .3s;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+#feeling:hover {
+  background-color: #CC6CE7;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  background-color: #6E73E8;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: .3s;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #CC6CE7;
+}
+
+.btn-group .btn {
+  flex: 1;
+}
+
+.btn.clear {
+  background-color: #6E73E8;
+}
+
+.btn.clear:hover {
+  background-color: #38386d;
+}
+
+@media screen and (max-width:880px){
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+  .left {
+    height: 200px;
+  }
+}
+
+/* ABOUT PAGE CSS */
+#Button {
+  background: #6E73E8;
+  margin-bottom: 10px;
+}
+
+#paragraph {
+  
+  color: #3c1b7d;
+  padding: 30px;
+  box-sizing: border-box;
+  margin-top: 0;
+  border-radius: 0 15px 15px 0;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  opacity: 0.9;
+  background-blend-mode: overlay;
+}
+
+#Button:hover {
+  background: #CC6CE7;
+}
+
+/* ---Navigation hoverrrr */
+#navigation a:hover,
+.contact-btn:hover,
+.btn:hover {
+  color: #3c1b7d !important;
+}
+/* Benefits Section */
+#benefits h2, #benefits p {
+  margin: 10px;
+}
+.benefits-section {
+  background: linear-gradient(135deg, #d0bdf4, #c6a7e2);
+  color: black;
+  padding: 60px 0;
+
+
+}
+
+.benefits-section .container {
+  max-width: 1200px; /* keep largest constraint used previously */
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  float: left;
+}
+
+.benefits-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: black;
+  margin-bottom: 40px;
+}
+#benefits {
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+
+}
+#image-features img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap:wrap;
+  padding: 40px 20px;
+  color: black;
+  opacity: 0.7;
+  width: calc(100%/2);
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, rgba(159,43,104,0.9), rgba(132,88,179,0.9));
+  border-radius: 7px;
+  animation: puff-in-center 600ms ease-out;
+  
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap:wrap;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e9d7fe, #d0bdf4);
+  color: black;
+  opacity: 1;
+  width: calc(100%/2);
+  text-align: center;
+  position: relative;
+  
+  }
+  
+.benefit, #image-features img {
+  margin: 0 25%;
+  width: 50%;
+}
+@media (max-width: 992px) {
+  .benefit, #image-features img {
+    margin: 0 10%;
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  .benefit {
+    margin: 0 5%;
+    width: 90%;
+  }
+}
+
+
+.benefit-text {
+  text-align: center;
+  max-width: 400px;
+}
+  
+
+.benefit img {
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  opacity: none;
+  animation: vibrate-2 1.9s linear infinite;
+}
+
+.benefit-text h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.benefit-text p {
+  line-height: 1.6;
+}
+
+.benefit-quote {
+  text-align: center;
+  margin-top: 60px;
+  position: relative;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-quote blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: black;
+  margin: 30px ;
+}
+
+.benefit-quote .quote-left,
+.benefit-quote .quote-right {
+  width: 40px;
+  position: absolute;
+  top: -10px;
+  opacity: 0.5;
+}
+
+.benefit-quote .quote-left {
+  left: -50px;
+}
+
+.benefit-quote .quote-right {
+  right: -50px;
+}
+
+.benefit-quote cite {
+  display: block;
+  margin-top: 10px;
+  color: black;
+  font-size: 0.9rem;
+}
+@media (max-width: 992px) {
+  .benefit {
+    width: calc(100% - 20px);
+  }
+}
+
+/*Survey x Result about us*/
+#about-paragraph {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap:wrap;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e9d7fe, #d0bdf4);
+  color: black;
+  opacity: 1;
+
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (max-width: 992px) {
+  #about-paragraph {
+    margin: 0 10%;
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  #about-paragraph {
+    margin: 0 5%;
+    width: 90%;
+  }
+}
+#about-paragraph p {
+width: calc(100%/2);
+max-width: 1000px;
+justify-content: center;
+padding: 40px 20px;
+margin: 0 auto;
+}
+
+#about-paragraph h2 {
+  margin-top: 20px;
+}

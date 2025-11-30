@@ -1,0 +1,95 @@
+#header {
+  background: linear-gradient(135deg, rgba(159,43,104,0.9), rgba(132,88,179,0.9));
+  color: #3c1b7d;
+  margin: 0px;
+  padding: 20px;
+  border-style: solid black;
+  animation: fadeInHeader 800ms ease-out;
+  background-blend-mode: overlay;
+  
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  background-color: #d0bdf4;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.image-gallery img {
+  opacity: none;
+}
+
+h1 h6{
+  color: #3c1b7d;
+}
+
+.grid-container {
+  columns: 5 200px;
+  column-gap: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
+  div {
+  width: 150px;
+  margin: 0 1.5rem 1.5rem 0;
+  display: inline-block;
+  width: 100%;
+  border: solid 2px black;
+  padding: 5px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  transition: all .25s ease-in-out;
+  &:hover img {
+  filter: grayscale(0);
+}
+&:hover {
+  border-color:#15317E;
+  }
+img {
+  width: 100%;
+  filter: grayscale(100%);
+  border-radius: 5px;
+  transition: all .25s ease-in-out;
+}
+.grid-conatainer p {
+  margin: 5px 0;
+  padding: 0;
+  text-align: center;
+  font-style: italic;
+    }
+  }
+}
+
+/* Gallery Benefit Section */
+.Benefit {
+  background: linear-gradient(135deg, #d0bdf4, #c6a7e2);
+  border: 2px solid #d8b4fe;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+.Benefit img {
+  animation: vibrate-2 1.9s linear infinite;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap:wrap;
+  padding: 40px 20px;
+  color: black;
+  opacity: 0.7;
+  width: calc(100%/2);
+  position: relative;
+  border-radius: 7px;
+}
+
+
+

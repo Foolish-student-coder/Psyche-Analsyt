@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Psyche Analyst</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Carl James M. Ayag" />
+    <meta name="description" content="Psyche Analyst is a psychology-inspired interactive platform designed to help users explore their emotions, worries, thoughts, and creative expression through surveys, reflection tools, and symbolic artwork. The website blends calming aesthetics with simple digital interactions—allowing users to submit surveys, analyze their moods, explore emotional insights, browse a collective gallery of symbolic art, and learn daily mental wellness tips. Built for students, researchers, and self-reflective individuals, Psyche Analyst serves as a safe and accessible space for emotional awareness, creativity, and personal growth." />
+    <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage" />
+    <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+    <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+    <link rel="stylesheet" href="styles/styles.css" media="all" />
+    <link rel="stylesheet" href="styles/animated.css" media="all" />
+    <link rel="stylesheet" href="styles/bootstrap-5.0.0-beta1.min.css"/>
+    <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div id="header">
+      <section id="image-logo"><img src="images/android-chrome-192x192.png" alt="Logo"></section>
+     
+      <header>
+        <h1>Welcome to the <div class="animated-underline-text"><strong>Psyche Analyst</strong> </div></h1>
+        <p>
+          This website is designed to give people accessibility to survey, gallery, and many more that
+          grasp their thoughts, feelings, and worries.
+        </p>
+      </header>
+    </div>
+    
+    <!-- Navigation -->
+    <nav id="navigation" role="navigation" aria-label="Primary">
+      <ul>
+        <li>
+          <a href="index.html">🏠Home</a> |
+          <a href="survey.html">📜Survey</a> |
+          <a href="results.html">📈Results</a> |
+          <a href="index.html#about-us-header">📝About</a> |
+          <a href="contact.html">📞Contact</a> |
+          <a href="media-graphic.html">🎨Media</a> |
+          <a href="Faq.html">❓FAQ</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Article Section -->
+    <div id="main-row">
+      <section id="article">
+        <header>
+          <h2>
+            "The greatest discovery of my generation is that a human being can
+            alter his life by altering his attitudes."
+            - William James
+          </h2>
+        </header>
+        <p>
+          A mixture of <strong>Google Forms</strong> (for surveys) +
+          <strong>Calm App aesthetics</strong> (soft, calming visuals) + 
+          basic analytics (showing people their survey reflections).
+          <br />
+          The goal is to create a simple, accessible psychology-inspired survey site
+          where people can express worries, emotions, and thoughts, then receive
+          reflective insights in a clean, easy-to-use format.
+        </p>
+      </section>
+
+      <!-- Main Section -->
+      <section id="survey" aria-labelledby="survey-title">
+        <h2 id="survey-title">Sample Survey</h2>
+        <form action="#" method="post" aria-describedby="survey-desc">
+          <p id="survey-desc">Anonymous quick check-in. Your responses are stored only in your browser.</p>
+          <label for="feeling">How are you feeling today?</label><br />
+          <select id="feeling" name="feeling">
+            <option value="happy">Happy</option>
+            <option value="neutral">Neutral</option>
+            <option value="sad">Sad</option>
+            <option value="anxious">Anxious</option>
+            <option value="angry">Angry</option>
+          </select>
+          <br />
+
+          <label for="worry">What worries you the most?</label><br />
+          <textarea id="worry" name="worry" rows="4" cols="40" placeholder="Type here..." aria-label="Worry description"></textarea>
+          <br />
+
+          <input type="submit" class="btn" value="Submit Survey" aria-label="Submit Survey" />
+        </form>
+
+        <!-- Reflection Feature -->
+        <section id="reflection">
+          <h2>Quick Reflection</h2>
+          <p>Get an instant reflection based on your mood:</p>
+          <button id="analyzeBtn" class="btn">Analyze My Mood</button>
+          <p id="reflectionResult"></p>
+          <br />
+          <a href="contact.html" class="btn contact-btn">Talk to Us</a>
+        </section>
+      </section>
+    </div>
+
+    
+
+    <!-- Results Preview Section -->
+    <section id="results">
+      <h2>Human Emotion </h2>
+      <div class="results-grid">
+        <div class="result-card">😊 Happy: Optimistic outlook</div>
+        <div class="result-card">😐 Neutral: Balanced mindset</div>
+        <div class="result-card">😢 Sad: Emotional awareness</div>
+        <div class="result-card">😰 Anxious: Stress signals</div>
+        <div class="result-card">😡 Angry: Energy to change</div>
+      </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips">
+      <h2>Daily Psychology Tips</h2>
+      <ul>
+        <li>Practice deep breathing for 2 minutes.</li>
+        <li>Write down 3 things you’re grateful for today.</li>
+        <li>Go for a 10-minute mindful walk.</li>
+        <li>Limit screen time before bed.</li>
+      </ul>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote">
+      <blockquote>
+        “Your present circumstances don’t determine where you can go; they merely determine where you start.”  
+        <cite>- Nido Qubein</cite>
+      </blockquote>
+    </section>
+
+     <body>
+    <!-- Header Section -->
+    <div id="about-us-header">
+      <h2><strong>About Us</strong></h2>
+      <h3>
+        <em>Psyche Analyst</em> is a simple, psychology-inspired site where people can share worries, emotions, and thoughts,
+        then receive reflective insights in a calming, easy-to-use format.
+      </h3>
+      <section id="image-features"><img src="assets/Header Image head.webp" alt=""Features></section>
+    </div>
+
+    <!-- About Section -->
+    <div id="paragraph">
+      <p>
+        This project is for psychology enthusiasts who want to better understand mental and emotional well-being.  
+        Our mission is to create a supportive platform where users can express themselves freely and gain valuable insights
+        into their psychological state.
+      </p>
+      <br />
+      <p>
+        This website is envisioned as a bridge between psychology and digital interaction.  
+        It is not a medical tool, but a safe space where people can reflect, share, and grow.  
+        Our hope is that psychologists, researchers, and even students will find value in this platform as a way
+        to explore human thoughts, emotions, and worries.
+      </p>
+      <br />
+
+      <h3>✨ Vision & Mission</h3>
+      <h4>Our Vision</h4>
+      <p>
+        To build a digital sanctuary where the mind, art, and soul unite — transforming self-reflection into a journey of healing, creativity, and understanding. We envision a world where mental wellness and self-discovery are not luxuries, but essentials accessible to everyone.
+      </p>
+      <ul>
+        <li><strong>Make mental wellness accessible</strong> through simple, intuitive digital tools that nurture emotional awareness and resilience.</li>
+        <li><strong>Encourage self-reflection and personal growth</strong> by guiding users to explore their inner world with compassion and curiosity.</li>
+        <li><strong>Create a safe, anonymous, and inclusive space</strong> where individuals can express, learn, and connect through shared experiences.</li>
+        <li><strong>Empower expression through art and symbolism</strong>, allowing users to upload drawings, paintings, or visual reflections that reveal the psyche’s voice.</li>
+        <li><strong>Build a collective gallery</strong> that celebrates the diversity of human emotion, thought, and imagination — a digital mirror of the global mind.</li>
+        <li><strong>Facilitate surveys and reflective assessments</strong> that promote deeper understanding of one’s personality, behavior, and emotional balance.</li>
+        <li><strong>Foster community inspiration</strong> through curated reflections, archetypal insights, and guided self-analysis.</li>
+        <li><strong>Integrate psychology, technology, and art</strong> into a unified experience that speaks to both the rational and emotional self</li>
+      </ul>
+
+      <br />
+      <h3>🎯 Goals</h3>
+      <h4>This is not a medical tool, but it serves as a safe space where users can:</h4>
+      <ol>
+        <li>Share their feelings anonymously</li>
+        <li>Reflect on their own psyche</li>
+        <li>See collective patterns (how others feel too)</li>
+        <li>Engage with psychology in an approachable, friendly format</li>
+      </ol>
+      <br />
+
+      <!-- Team / Creator Section -->
+      <h3>👨‍💻 Creator</h3>
+      <p>
+        This project was designed and developed by <strong>Carl James M. Ayag</strong>.  
+        As the author, I am passionate about blending technology and psychology to help others explore their inner world.
+      </p>
+      <br />
+
+      <!-- Call-to-Action -->
+      <div class="cta">
+        <p><em>Ready to reflect on your emotions?</em></p>
+        <a href="survey.html#quiz" target="_blank"> <button class="btn">Take a Survey</button></a>
+        <a href="contact.html" target="_blank"> <button class="btn">Get in Touch</button></a>
+      </div>
+    </div>
+
+    <section class="benefits-section" id="benefits">
+  <div class="benefit-container">
+    <h2>Benefits</h2>
+    <p class="subtitle">Use <strong>Psyche Analyst</strong> to…</p>
+
+    <!-- Benefit 1 -->
+    <div class="benefit">
+      <img src="assets/Feeling.webp" alt="Reflection and Clarity" />
+      <div class="benefit-text">
+        <h3>Discover Your Emotional Patterns 🧠</h3>
+        <p>
+          Understand what you truly feel — beyond surface emotions. Our guided surveys help you uncover hidden moods and patterns through self-reflective questioning.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefit 2 -->
+    <div class="benefit">
+      <img src="assets/SymbolismBenefits.webp" alt="Symbolism and Art" />
+      <div class="benefit-text">
+        <h3>Express Through Art and Symbolism 🎨</h3>
+        <p>
+          Share drawings or symbolic art that represent your psyche. Let your creativity speak where words fall short, and see your emotions take visual form.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefit 3 -->
+    <div class="benefit">
+      <img src="assets/Gallery.webp" alt="Gallery of Emotions" />
+      <div class="benefit-text">
+        <h3>Explore the Collective Gallery 🌌</h3>
+        <p>
+          Browse a digital collection of artworks and reflections submitted by others. Experience how diverse minds visualize emotion, thought, and transformation.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefit 4 -->
+    <div class="benefit">
+      <img src="assets/Emotion.webp" alt="Emotional Insights Dashboard" />
+      <div class="benefit-text">
+        <h3>Turn Data Into Emotional Insight 📊</h3>
+        <p>
+          View your survey results transformed into clear visuals and insights. Track emotional progress and see how your self-awareness grows over time.
+        </p>
+      </div>
+    </div>
+
+    <!-- Benefit 5 -->
+    <div class="benefit">
+      <img src="assets/Community.webp" alt="Community and Connection" />
+      <div class="benefit-text">
+        <h3>Join a Mindful Community 🌱</h3>
+        <p>
+          Connect anonymously with others through shared reflections and stories. Discover that healing and growth begin with empathy and connection.
+        </p>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="benefit-quote">
+      <img class="quote-left" src="/assets/quote--left-D91NYpN-.png" />
+      <blockquote>
+        “Every emotion is a message — art, reflection, and data are simply ways to listen.”
+      </blockquote>
+      <img class="quote-right" src="/assets/quote--right-CbKlKswk.png"  />
+      <cite>— Psyche Analyst Community</cite>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer Section -->
+    <div id="footer" role="contentinfo">
+      <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+      <p>Author: Carl James M. Ayag</p>
+      <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+    </div>
+
+    <!-- Reflection Script -->
+    <script type="text/javascript" >
+      // Store quick survey to localStorage and redirect to results
+      (function(){
+        var surveyForm = document.querySelector('#survey form');
+        if (surveyForm) {
+          surveyForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            var feeling = document.getElementById('feeling').value;
+            var worry = document.getElementById('worry').value.trim();
+            var entry = {
+              feeling: feeling,
+              worry: worry,
+              createdAt: new Date().toISOString(),
+              source: 'index-quick'
+            };
+            try {
+              var all = JSON.parse(localStorage.getItem('surveys') || '[]');
+              all.push(entry);
+              localStorage.setItem('surveys', JSON.stringify(all));
+            } catch (err) {
+              // fallback: overwrite
+              localStorage.setItem('surveys', JSON.stringify([entry]));
+            }
+            window.location.href = 'results.html';
+          });
+        }
+      })();
+
+      document.getElementById("analyzeBtn").addEventListener("click", function () {
+        const feeling = document.getElementById("feeling").value;
+        let message = "";
+        switch (feeling) {
+          case "happy":
+            message = "Keep enjoying the positive vibes and spread them!";
+            break;
+          case "neutral":
+            message = "Even neutral days can be a chance for calm reflection.";
+            break;
+          case "sad":
+            message = "It’s okay to feel sad. Try writing your feelings in a journal.";
+            break;
+          case "anxious":
+            message = "Take a deep breath. Ground yourself in the present moment.";
+            break;
+          case "angry":
+            message = "Channel your anger into something creative or physical.";
+            break;
+          default:
+            message = "Please select how you're feeling.";
+        }
+        document.getElementById("reflectionResult").textContent = message;
+      });
+    </script>
+
+  
+  </body>
+</html>

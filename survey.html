@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Carl James M. Ayag" />
+    <meta name="description" content="Take our daily psychological survey to track your emotions, stress levels, and mental well-being. Anonymous and secure." />
+    <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage, survey, psychology, emotions" />
+    <title>Psyche Analyst – Survey</title>
+    <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+    <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+    <link rel="stylesheet" href="styles/styles.css" media="all" />
+    <link rel="stylesheet" href="styles/survey-template.css" media="all" />
+    <link rel="stylesheet" href="styles/animated.css" media="all" />
+    <link rel="stylesheet" href="styles/bootstrap-5.0.0-beta1.min.css"/>
+    <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+  </head>
+  <body>
+    <div id="header">
+      <header>
+        <h1><strong>Survey</strong></h1>
+        <p>Your responses are anonymous and saved only in your browser.</p>
+      </header>
+    </div>
+
+    <nav id="navigation" role="navigation" aria-label="Primary">
+      <ul>
+        <li>
+          <a href="index.html">🏠Home</a> |
+          <a href="survey.html" aria-current="page">📜Surveys</a> |
+          <a href="results.html">📈Results</a> |
+          <a href="index.html#about-us-header">📝About</a> |
+          <a href="contact.html">📞Contact</a> |
+          <a href="media-graphic.html">🎨Media</a> |
+          <a href="Faq.html">❓FAQ</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main aria-labelledby="survey-main-title">
+      <h2 id="survey-main-title">Daily Check-in</h2>
+      <form id="fullSurvey" action="#" method="post">
+        <label for="s-feeling">How are you feeling today?</label><br />
+        <select id="s-feeling" name="feeling" required>
+          <option value="">Select one...</option>
+          <option value="happy">Happy</option>
+          <option value="neutral">Neutral</option>
+          <option value="sad">Sad</option>
+          <option value="anxious">Anxious</option>
+          <option value="angry">Angry</option>
+        </select>
+        <br /><br />
+
+        <label for="s-energy">Energy level</label><br />
+        <input type="range" id="s-energy" name="energy" min="1" max="5" value="3" />
+        <small>1 = low, 5 = high</small>
+        <br /><br />
+
+        <fieldset>
+          <legend>In the past day, I felt...</legend>
+          <label><input type="radio" name="stress" value="low" required /> Low stress</label><br />
+          <label><input type="radio" name="stress" value="medium" /> Medium stress</label><br />
+          <label><input type="radio" name="stress" value="high" /> High stress</label>
+        </fieldset>
+        <br />
+
+        <label for="s-worry">What’s on your mind?</label><br />
+        <textarea id="s-worry" name="worry" rows="5" cols="50" placeholder="Optional"></textarea>
+        <br /><br />
+
+        <button class="btn" type="submit">Submit</button>
+        <a class="btn contact-btn" href="https://forms.google.com" target="_blank" rel="noopener">Use Google Form</a>
+      </form>
+
+      <section aria-labelledby="manipulation-quiz">
+        <h2 id="manipulation-quiz">Emotion Identification Quiz</h2>
+        <div id="quiz"></div>
+        <div id="quiz-result"></div>
+      </section>
+    </main>
+    <section class="paragraph-section" id="about-paragraph">
+  <div>
+    <h2><strong>About the Survey</strong></h2>
+      <!-- Benefits of the Survey Section -->
+    <div class="Benefit">
+    <img src="assets/COunseling.webp" alt="Persona Counseling Illustration"/>
+    <p>
+      The survey section offers a series of thoughtfully designed questions that delve into the subtle layers of your emotions, thoughts, and internal states. These surveys are not ordinary questionnaires — they are tools for introspection, self-awareness, and emotional clarity.
+    </p>
+    </div>
+    <br/>
+    <div class="Benefit">
+    <img src="assets/emote.webp" alt="Persona Emoting Illustration"/>
+    <p>
+      Each survey begins broadly, allowing you to express how you currently perceive your emotions and mindset. As the questions progress, they gradually narrow in focus, guiding you to identify what you truly feel — whether it’s happiness, sadness, anxiety, anger, or neutrality.
+    </p>
+    </div>
+    <br/>
+    <div class="Benefit">
+    <img src="assets/Mirror.webp" alt="Persona Self-Awareness Illustration"/>
+    <p>
+      This method mirrors the natural process of psychological discovery: starting from a wide emotional spectrum and slowly unveiling the core emotion beneath the surface. Through this reflective approach, you gain deeper understanding of your emotional patterns and triggers.
+    </p>
+    </div>
+    <br/>
+    <div class="Benefit">
+    <img src="assets/InsightMind.webp" alt="Persona Gaining Insight Illustration"/>
+    <p>
+      These surveys are designed not to judge, but to reveal. Each response contributes to your personal journey toward self-awareness, helping you articulate what words often fail to express. They serve as mirrors of your current psyche — tools that transform uncertainty into clarity.
+    </p>
+    </div>
+    <br/>
+    <div class="Benefit">
+    <img src="assets/OpenMind.webp" alt="Persona Open Mind Illustration"/>
+    <p>
+      Take each survey with honesty and openness. Let your answers unfold naturally, and allow the process to guide you toward recognizing your emotional truth. In the end, you may find that awareness itself is the first step toward healing and growth.
+    </p>
+    </div>
+  </div>
+</section>
+
+    <script>
+      (function(){
+        var form = document.getElementById('fullSurvey');
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var entry = {
+            feeling: document.getElementById('s-feeling').value,
+            energy: Number(document.getElementById('s-energy').value),
+            stress: (document.querySelector('input[name="stress"]:checked')||{}).value || null,
+            worry: document.getElementById('s-worry').value.trim(),
+            createdAt: new Date().toISOString(),
+            source: 'survey-page'
+          };
+          try {
+            var all = JSON.parse(localStorage.getItem('surveys') || '[]');
+            all.push(entry);
+            localStorage.setItem('surveys', JSON.stringify(all));
+          } catch (err) {
+            localStorage.setItem('surveys', JSON.stringify([entry]));
+          }
+
+          // Redirect to appropriate emotion page based on feeling
+          var feeling = entry.feeling;
+          var emotionPage = 'results.html'; // default fallback
+
+          switch(feeling) {
+            case 'happy':
+              emotionPage = 'happy.html';
+              break;
+            case 'neutral':
+              emotionPage = 'neutral.html';
+              break;
+            case 'sad':
+              emotionPage = 'sad.html';
+              break;
+            case 'anxious':
+              emotionPage = 'anxious.html';
+              break;
+            case 'angry':
+              emotionPage = 'angry.html';
+              break;
+            default:
+              emotionPage = 'results.html'; // fallback for any other case
+          }
+
+          window.location.href = emotionPage;
+        });
+      })();
+    </script>
+
+    <script src="js/emotion_quiz.js"></script>
+
+    <!-- Footer Section -->
+    <div id="footer" role="contentinfo">
+      <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+      <p>Author: Carl James M. Ayag</p>
+      <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+    </div>
+  </body>
+  </html>
+
+

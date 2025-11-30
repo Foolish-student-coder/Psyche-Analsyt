@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="Explore and understand your feelings of sadness in a safe, supportive environment. Take our sadness survey and discover coping strategies." />
+  <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage, sadness, depression, mental health" />
+  <title>Sad Section – Psyche Portfolio</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" media="all" />
+  <link rel="stylesheet" href="styles/sad-style.css" />
+  <link rel="stylesheet" href="styles/bootstrap-5.0.0-beta1.min.css"/>
+  <script src="js/bootstrap-5.0.0-beta1.min.js" ></script>
+</head>
+<body class="sad-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Welcome to Sad Reflections <span id="displayUser"></span> 😢</h2>
+    <p class="subtitle">It's okay to feel sad sometimes. Let's explore ways to understand and manage these feelings.</p>
+
+    <!-- Video Section -->
+    <div class="video-section">
+      <h3>Understanding Sadness & Depression</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/Ii53BtHLnGk"><!-- embed link for a relevant video -->
+          title="Understanding Depression"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-description">A calming explanation of depression and how to seek help.</p>
+    </div>
+
+    <!-- Survey Questions -->
+    <div class="survey-section">
+      <h3>Self-Reflection Questions</h3>
+      <form id="sadSurvey" action="#" method="post">
+        <div class="question-card">
+          <p><strong>1.</strong> On a scale of 1-10, how sad have you felt in the past week?</p>
+          <input type="range" min="1" max="10" value="5" class="emotion-slider" id="sadnessScale" name="sadnessLevel">
+          <span id="sadnessValue">5</span>/10
+        </div>
+
+        <div class="question-card">
+          <p><strong>2.</strong> What activities used to bring you joy but don't anymore?</p>
+          <textarea placeholder="Write your thoughts..." class="reflection-textarea" name="lostJoy"></textarea>
+        </div>
+
+        <div class="question-card">
+          <p><strong>3.</strong> How often do you experience feelings of hopelessness?</p>
+          <select class="emotion-select" name="hopelessness">
+            <option value="">Select frequency...</option>
+            <option>Rarely or never</option>
+            <option>Sometimes</option>
+            <option>Often</option>
+            <option>Almost always</option>
+          </select>
+        </div>
+
+        <button class="btn" type="submit">Submit Sad Survey</button>
+      </form>
+    </div>
+
+    <!-- Coping Strategies -->
+    <div class="strategies-section">
+      <h3>Healthy Coping Strategies</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <h4>🌱 Practice Gratitude</h4>
+          <p>Write down 3 things you're grateful for each day, no matter how small.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🏃‍♀️ Physical Activity</h4>
+          <p>Even a 10-minute walk can help improve your mood through endorphins.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🗣️ Talk It Out</h4>
+          <p>Share your feelings with a trusted friend or professional.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>🎵 Listen to Music</h4>
+          <p>Upbeat or calming music can help shift your emotional state.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Highlights -->
+    <div class="portfolio-section">
+      <h3>Depression Resources Portfolio</h3>
+      <ul class="highlight-list">
+        <li>📚 <a href="https://www.nimh.nih.gov/health/topics/depression" target="_blank">NIMH Depression Information</a></li>
+        <li>🌐 <a href="https://www.who.int/news-room/fact-sheets/detail/depression" target="_blank">WHO Depression Facts</a></li>
+        <li>📞 National Suicide Prevention Lifeline: 988</li>
+        <li>💬 <a href="https://www.betterhelp.com/" target="_blank">Online Therapy Resources</a></li>
+      </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="happy.html"><button class="emotion-btn happy-btn">← Happy</button></a>
+      <a href="anxious.html"><button class="emotion-btn anxious-btn">Anxious →</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Load username
+    const displayUser = document.getElementById("displayUser");
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      displayUser.textContent = savedUser;
+    }
+
+    // Slider functionality
+    document.getElementById('sadnessScale').addEventListener('input', function() {
+      document.getElementById('sadnessValue').textContent = this.value;
+    });
+
+    // Handle survey form submission
+    document.getElementById('sadSurvey').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const surveyData = {
+        sadnessLevel: parseInt(formData.get('sadnessLevel')),
+        lostJoy: formData.get('lostJoy').trim(),
+        hopelessness: formData.get('hopelessness'),
+        emotion: 'sad',
+        timestamp: new Date().toISOString(),
+        source: 'sad-page'
+      };
+
+      // Store in localStorage for the sad-result page
+      try {
+        let sadData = JSON.parse(localStorage.getItem('sadSurveys') || '[]');
+        sadData.push(surveyData);
+        localStorage.setItem('sadSurveys', JSON.stringify(sadData));
+      } catch (err) {
+        localStorage.setItem('sadSurveys', JSON.stringify([surveyData]));
+      }
+
+      // Redirect to sad results page
+      window.location.href = 'sad-result.html';
+    });
+
+    // Add floating animation to cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.question-card, .strategy-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+        card.classList.add('float-in');
+      });
+    });
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

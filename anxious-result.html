@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="View your anxiety survey results, track patterns in your anxiety levels, and gain insights into your triggers and coping mechanisms" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, layout, extension, homepage" />
+  <title>Anxious Survey Results – Psyche Portfolio</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/anxious-style.css" />
+</head>
+<body class="anxious-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Anxious Survey Results 😰</h2>
+    <p class="subtitle">Your responses have been recorded. Here's a summary of your anxiety survey data.</p>
+
+    <!-- Survey Data Display -->
+    <div class="results-section">
+      <h3>Your Latest Anxious Survey Response</h3>
+      <div class="result-card" id="latestResponse">
+        <p><strong>Loading your latest response...</strong></p>
+      </div>
+    </div>
+
+    <!-- Survey History -->
+    <div class="results-section">
+      <h3>Your Anxious Survey History</h3>
+      <div class="results-grid" id="surveyHistory">
+        <p>Loading survey history...</p>
+      </div>
+    </div>
+
+    <!-- Insights Section -->
+    <div class="results-section">
+      <h3>Personal Insights</h3>
+      <div class="insights-card" id="insights">
+        <p>Complete more surveys to see personalized insights here.</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="anxious.html"><button class="emotion-btn sad-btn">← Back to Anxious Page</button></a>
+      <a href="results.html"><button class="btn">View All Results</button></a>
+    </div>
+  </div>
+
+  <script>
+    function displayAnxiousResults() {
+      try {
+        const anxiousData = JSON.parse(localStorage.getItem('anxiousSurveys') || '[]');
+
+        if (anxiousData.length === 0) {
+          document.getElementById('latestResponse').innerHTML = '<p>No survey responses found. Take the anxious survey first!</p>';
+          document.getElementById('surveyHistory').innerHTML = '<p>No survey history available.</p>';
+          return;
+        }
+
+        // Display latest response
+        const latest = anxiousData[anxiousData.length - 1];
+        const latestDate = new Date(latest.timestamp).toLocaleString();
+
+        document.getElementById('latestResponse').innerHTML = `
+          <h4>Latest Response - ${latestDate}</h4>
+          <p><strong>Anxiety Frequency:</strong> ${latest.anxietyFrequency || 'Not specified'}</p>
+          <p><strong>Anxiety Level:</strong> ${latest.anxietyLevel}/10</p>
+          <p><strong>Main Triggers:</strong> ${latest.triggers.length > 0 ? latest.triggers.join(', ') : 'Not specified'}</p>
+          <p><strong>Daily Impact:</strong> ${latest.dailyImpact || 'Not specified'}</p>
+        `;
+
+        // Display survey history
+        const historyContainer = document.getElementById('surveyHistory');
+        historyContainer.innerHTML = '';
+
+        // Show last 5 responses
+        const recentResponses = anxiousData.slice(-5).reverse();
+
+        recentResponses.forEach((response, index) => {
+          const responseDate = new Date(response.timestamp).toLocaleString();
+          const card = document.createElement('div');
+          card.className = 'result-card';
+          card.innerHTML = `
+            <h5>Response #${anxiousData.length - index} - ${responseDate}</h5>
+            <p><strong>Anxiety Level:</strong> ${response.anxietyLevel}/10</p>
+            <p><strong>Frequency:</strong> ${response.anxietyFrequency || 'Not specified'}</p>
+            <p><strong>Triggers:</strong> ${response.triggers.length > 0 ? response.triggers.join(', ') : 'Not specified'}</p>
+          `;
+          historyContainer.appendChild(card);
+        });
+
+        // Generate insights
+        generateAnxiousInsights(anxiousData);
+
+      } catch (err) {
+        console.error('Error loading anxious survey data:', err);
+        document.getElementById('latestResponse').innerHTML = '<p>Error loading survey data.</p>';
+      }
+    }
+
+    function generateAnxiousInsights(data) {
+      if (data.length < 2) {
+        document.getElementById('insights').innerHTML = '<p>Complete more surveys to see insights about your anxiety patterns.</p>';
+        return;
+      }
+
+      const insights = [];
+      const avgAnxiety = data.reduce((sum, d) => sum + d.anxietyLevel, 0) / data.length;
+
+      insights.push(`Average anxiety level: ${avgAnxiety.toFixed(1)}/10`);
+
+      const highAnxietyDays = data.filter(d => d.anxietyLevel >= 7).length;
+      if (highAnxietyDays > 0) {
+        insights.push(`${highAnxietyDays} days with high anxiety levels (7+)`);
+      }
+
+      // Analyze common triggers
+      const allTriggers = data.flatMap(d => d.triggers || []);
+      if (allTriggers.length > 0) {
+        const triggerCounts = allTriggers.reduce((acc, trigger) => {
+          acc[trigger] = (acc[trigger] || 0) + 1;
+          return acc;
+        }, {});
+
+        const mostCommonTrigger = Object.entries(triggerCounts).sort(([,a], [,b]) => b - a)[0];
+        if (mostCommonTrigger) {
+          insights.push(`Most common trigger: ${mostCommonTrigger[0]} (${mostCommonTrigger[1]} times)`);
+        }
+      }
+
+      document.getElementById('insights').innerHTML = `
+        <h4>Your Anxiety Patterns</h4>
+        <ul>
+          ${insights.map(insight => `<li>${insight}</li>`).join('')}
+        </ul>
+        <p><em>These insights are based on your survey responses. Consider discussing patterns with a mental health professional.</em></p>
+      `;
+    }
+
+    // Load results on page load
+    document.addEventListener('DOMContentLoaded', displayAnxiousResults);
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>

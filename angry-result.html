@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Carl James M. Ayag" />
+  <meta name="description" content="View your anger management survey results and track your progress in understanding and managing anger responses" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, anger management, survey results, emotional tracking, psychology" />
+  <title>Angry Survey Results – Psyche Portfolio</title>
+  <link rel="icon" type="image/png" sizes="16x16,32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="manifest" href="images/favicon_io/site.webmanifest" />
+  <link rel="stylesheet" href="styles/styles.css" media="all" />
+  <link rel="stylesheet" href="styles/angry-style.css" media="all" />
+</head>
+<body class="angry-theme">
+  <nav id="navigation" role="navigation" aria-label="Primary">
+    <ul>
+      <li>
+        <a href="index.html">🏠Home</a> |
+        <a href="survey.html">📜Surveys</a> |
+        <a href="results.html">📈Results</a> |
+        <a href="index.html#about-us-header">📝About</a> |
+        <a href="contact.html">📞Contact</a> |
+        <a href="media-graphic.html">🎨Media</a> |
+        <a href="Faq.html">❓FAQ</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Angry Survey Results 😠</h2>
+    <p class="subtitle">Your responses have been recorded. Here's a summary of your anger survey data.</p>
+
+    <!-- Survey Data Display -->
+    <div class="results-section">
+      <h3>Your Latest Angry Survey Response</h3>
+      <div class="result-card" id="latestResponse">
+        <p><strong>Loading your latest response...</strong></p>
+      </div>
+    </div>
+
+    <!-- Survey History -->
+    <div class="results-section">
+      <h3>Your Angry Survey History</h3>
+      <div class="results-grid" id="surveyHistory">
+        <p>Loading survey history...</p>
+      </div>
+    </div>
+
+    <!-- Insights Section -->
+    <div class="results-section">
+      <h3>Personal Insights</h3>
+      <div class="insights-card" id="insights">
+        <p>Complete more surveys to see personalized insights here.</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="emotion-nav">
+      <a href="angry.html"><button class="emotion-btn anxious-btn">← Back to Angry Page</button></a>
+      <a href="results.html"><button class="btn">View All Results</button></a>
+    </div>
+  </div>
+
+  <script>
+    function displayAngryResults() {
+      try {
+        const angryData = JSON.parse(localStorage.getItem('angrySurveys') || '[]');
+
+        if (angryData.length === 0) {
+          document.getElementById('latestResponse').innerHTML = '<p>No survey responses found. Take the angry survey first!</p>';
+          document.getElementById('surveyHistory').innerHTML = '<p>No survey history available.</p>';
+          return;
+        }
+
+        // Display latest response
+        const latest = angryData[angryData.length - 1];
+        const latestDate = new Date(latest.timestamp).toLocaleString();
+
+        document.getElementById('latestResponse').innerHTML = `
+          <h4>Latest Response - ${latestDate}</h4>
+          <p><strong>Anger Frequency:</strong> ${latest.angerFrequency || 'Not specified'}</p>
+          <p><strong>Anger Level:</strong> ${latest.angerLevel}/10</p>
+          <p><strong>Main Triggers:</strong> ${latest.triggers.length > 0 ? latest.triggers.join(', ') : 'Not specified'}</p>
+          <p><strong>Expression Style:</strong> ${latest.expression || 'Not specified'}</p>
+        `;
+
+        // Display survey history
+        const historyContainer = document.getElementById('surveyHistory');
+        historyContainer.innerHTML = '';
+
+        // Show last 5 responses
+        const recentResponses = angryData.slice(-5).reverse();
+
+        recentResponses.forEach((response, index) => {
+          const responseDate = new Date(response.timestamp).toLocaleString();
+          const card = document.createElement('div');
+          card.className = 'result-card';
+          card.innerHTML = `
+            <h5>Response #${angryData.length - index} - ${responseDate}</h5>
+            <p><strong>Anger Level:</strong> ${response.angerLevel}/10</p>
+            <p><strong>Frequency:</strong> ${response.angerFrequency || 'Not specified'}</p>
+            <p><strong>Triggers:</strong> ${response.triggers.length > 0 ? response.triggers.join(', ') : 'Not specified'}</p>
+            <p><strong>Expression:</strong> ${response.expression || 'Not specified'}</p>
+          `;
+          historyContainer.appendChild(card);
+        });
+
+        // Generate insights
+        generateAngryInsights(angryData);
+
+      } catch (err) {
+        console.error('Error loading angry survey data:', err);
+        document.getElementById('latestResponse').innerHTML = '<p>Error loading survey data.</p>';
+      }
+    }
+
+    function generateAngryInsights(data) {
+      if (data.length < 2) {
+        document.getElementById('insights').innerHTML = '<p>Complete more surveys to see insights about your anger patterns.</p>';
+        return;
+      }
+
+      const insights = [];
+      const avgAnger = data.reduce((sum, d) => sum + d.angerLevel, 0) / data.length;
+
+      insights.push(`Average anger level: ${avgAnger.toFixed(1)}/10`);
+
+      const highAngerDays = data.filter(d => d.angerLevel >= 7).length;
+      if (highAngerDays > 0) {
+        insights.push(`${highAngerDays} days with high anger levels (7+)`);
+      }
+
+      // Analyze common triggers
+      const allTriggers = data.flatMap(d => d.triggers || []);
+      if (allTriggers.length > 0) {
+        const triggerCounts = allTriggers.reduce((acc, trigger) => {
+          acc[trigger] = (acc[trigger] || 0) + 1;
+          return acc;
+        }, {});
+
+        const mostCommonTrigger = Object.entries(triggerCounts).sort(([,a], [,b]) => b - a)[0];
+        if (mostCommonTrigger) {
+          insights.push(`Most common trigger: ${mostCommonTrigger[0]} (${mostCommonTrigger[1]} times)`);
+        }
+      }
+
+      // Analyze expression patterns
+      const expressionCounts = data
+        .map(d => d.expression)
+        .filter(Boolean)
+        .reduce((acc, expression) => {
+          acc[expression] = (acc[expression] || 0) + 1;
+          return acc;
+        }, {});
+
+      if (Object.keys(expressionCounts).length > 0) {
+        const mostCommonExpression = Object.entries(expressionCounts).sort(([,a], [,b]) => b - a)[0];
+        insights.push(`Most common expression style: ${mostCommonExpression[0]} (${mostCommonExpression[1]} times)`);
+      }
+
+      document.getElementById('insights').innerHTML = `
+        <h4>Your Anger Patterns</h4>
+        <ul>
+          ${insights.map(insight => `<li>${insight}</li>`).join('')}
+        </ul>
+        <p><em>These insights are based on your survey responses. Consider discussing patterns with a mental health professional.</em></p>
+      `;
+    }
+
+    // Load results on page load
+    document.addEventListener('DOMContentLoaded', displayAngryResults);
+  </script>
+
+  <!-- Footer Section -->
+  <div id="footer" role="contentinfo">
+    <p>&#169; 2025 Psyche Analyst Website. All Rights Reserved.</p>
+    <p>Author: Carl James M. Ayag</p>
+    <p><a href="mailto:cjayag80@gmail.com">cjayag80@gmail.com</a></p>
+  </div>
+</body>
+</html>
