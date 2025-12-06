@@ -214,7 +214,7 @@ Home (index.html)
 
 ## 🔮 Future Implementations
 
-### Phase 1: Enhanced Analytics (Q1 2025)
+### Phase 1: Enhanced Analytics
 
 #### 🤖 AI Mood Predictor
 - **Machine Learning Model**: Train on historical survey data
@@ -257,7 +257,7 @@ const predictedMood = moodPredictor.predict('tomorrow');
 
 ---
 
-### Phase 2: Blockchain Integration (Q2 2025)
+### Phase 2: Blockchain Integration 
 
 #### 🔐 Immutable Survey Records
 - **Blockchain**: Store survey hashes for data integrity
@@ -266,7 +266,7 @@ const predictedMood = moodPredictor.predict('tomorrow');
 - **Implementation**: Ethereum or Solana smart contracts
 - **Benefit**: Users verify their own data history
 
-#### 💰 Wellness Tokens (Optional)
+#### 💰 Wellness Tokens 
 - **Gamification**: Earn tokens for completing surveys
 - **Reward System**: Redeem for features or donations
 - **Smart Contracts**: Automatic token distribution
@@ -295,7 +295,7 @@ contract PsycheAnalystRecord {
 
 ---
 
-### Phase 3: AI Advanced Features (Q3 2025)
+### Phase 3: AI Advanced Features
 
 #### 🧠 AI Therapist Assistant
 - **Conversational AI**: Chat-based emotional support
@@ -331,7 +331,7 @@ contract PsycheAnalystRecord {
 
 ---
 
-### Phase 4: Community & Social (Q4 2025)
+### Phase 4: Community & Social 
 
 #### 👥 User Profiles
 - **Personal Dashboard**: View all submissions & analytics
@@ -359,7 +359,7 @@ contract PsycheAnalystRecord {
 
 ---
 
-### Phase 5: Professional Tools (2026)
+### Phase 5: Professional Tools 
 
 #### 👨‍⚕️ Researcher Dashboard
 - **Anonymized Data Export**: For psychology research
@@ -652,8 +652,8 @@ If you're experiencing:
 ## 📞 Contact & Support
 
 - **Email**: cjayag80@gmail.com
-- **Website**: https://yourwebsite.com
-- **GitHub**: https://github.com/yourusername/psyche-analyst
+- **Website**: https://psyche-analyst.netlify.app/
+- **GitHub**: https://github.com/Foolish-student-coder/Psyche-Analsyt.git
 - **Feedback Form**: contact.html
 - **Report Bugs**: Create GitHub issue
 
