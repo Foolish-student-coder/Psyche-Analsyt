@@ -625,7 +625,7 @@ h2:after {
   
 
 .benefit img {
-  width: 400px;
+  width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
@@ -681,8 +681,15 @@ h2:after {
   font-size: 0.9rem;
 }
 @media (max-width: 992px) {
-  .benefit {
+  .benefit, #image-features img{
     width: calc(100% - 20px);
+  }
+}
+@media (max-width: 600px) {
+  .benefit, 
+  #image-features img {
+    width: 100%;
+    margin: 0;
   }
 }
 
