@@ -2,30 +2,6 @@
 
 > *A psychology-inspired digital sanctuary where mind, art, and data unite for emotional self-discovery and wellness.*
 
----
-
-## 📋 Table of Contents
-
-1. [About](#about)
-2. [What is Psyche Analyst?](#what-is-psyche-analyst)
-3. [Current Features](#current-features)
-4. [Website Pages & Routes](#website-pages--routes)
-5. [Project Structure](#project-structure)
-6. [Technology Stack](#technology-stack)
-7. [Quick Start Guide](#quick-start-guide)
-8. [Screenshots & Visual Guide](#screenshots--visual-guide)
-9. [Keyboard Shortcuts & Accessibility](#keyboard-shortcuts--accessibility)
-10. [Troubleshooting](#troubleshooting)
-11. [Future Implementations](#future-implementations)
-12. [Development Guide](#development-guide)
-13. [Privacy & Security](#privacy--security)
-14. [Feedback & Analysis](#feedback--analysis)
-15. [Design Philosophy](#design-philosophy)
-16. [Resources & Credits](#resources--credits)
-17. [Disclaimer](#disclaimer)
-
----
-
 ## 📖 About
 
 **Psyche Analyst** is an interactive, psychology-inspired wellness platform designed to help users explore their emotions, express themselves through art, and gain meaningful insights into their psychological state.
@@ -121,14 +97,13 @@ Not a medical tool, but a **safe space** where users can:
 | **Media Gallery** | `media-graphic.html` | Community art gallery & submissions |
 | **Contact** | `contact.html` | Contact form with file upload |
 | **FAQ** | `Faq.html` | Frequently asked questions |
-| **Thank You** | `thank-you.html` | Confirmation after submission |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-Cursor Psyche Analystn Website/
+Psyche Analyst Website/
 │
 ├── index.html                    # Home page with quick survey
 ├── survey.html                   # Full survey page
@@ -142,7 +117,6 @@ Cursor Psyche Analystn Website/
 ├── media-graphic.html            # Gallery & submissions
 ├── contact.html                  # Contact form
 ├── Faq.html                      # FAQ section
-├── thank-you.html                # Thank you page
 │
 ├── styles/
 │   ├── styles.css                # Main stylesheet
@@ -193,7 +167,7 @@ Cursor Psyche Analystn Website/
 
 ### Step 1: Clone or Download
 ```bash
-git clone https://github.com/yourusername/psyche-analyst.git
+git clone https://github.com/Foolish-student-coder/Psyche-Analsyt.git
 cd psyche-analyst
 ```
 
@@ -237,69 +211,7 @@ Home (index.html)
 - **Contact**: Share thoughts → Provide feedback
 
 ---
-
-## 🖼️ Screenshots & Visual Guide
-
-### Homepage
-```
-[SCREENSHOT PLACEHOLDER: index.html main hero section]
-- Logo and welcome message
-- Quick survey form
-- Inspirational quote
-- Benefits grid (5 sections)
-```
-
-### Survey Page
-```
-[SCREENSHOT PLACEHOLDER: survey.html full form]
-- Emotion dropdown
-- Worry textarea
-- Satisfaction slider
-- Submit/Clear buttons
-```
-
-### Results Dashboard
-```
-[SCREENSHOT PLACEHOLDER: results.html analytics]
-- Emotion distribution chart
-- Pattern analysis
-- Historical data
-- Detailed insights by emotion
-```
-
-### Gallery
-```
-[SCREENSHOT PLACEHOLDER: media-graphic.html gallery grid]
-- Community artwork submissions
-- Upload new art
-- Filter by emotion
-- View details & comments
-```
-
-### Contact Form
-```
-[SCREENSHOT PLACEHOLDER: contact.html form]
-- Name/Email input
-- Message textarea
-- File upload for art
-- Emotion check-in
-- Submit button
-```
-
----
-
-## ⌨️ Keyboard Shortcuts & Accessibility
-
-### Navigation
-| Key | Action |
-|-----|--------|
-| `Tab` | Move to next interactive element |
-| `Shift + Tab` | Move to previous interactive element |
-| `Enter` | Activate button or submit form |
-| `Escape` | Close modals/dialogs |
-| `Alt + H` | Go to Home |
-| `Alt + S` | Go to Survey |
-| `Alt + C` | Go to Contact |
+## ⌨️ Accessibility
 
 ### Accessibility Features
 ✅ **Screen Reader Support**
@@ -326,73 +238,7 @@ Home (index.html)
 - Responsive viewport
 - Readable on zoom up to 200%
 
-### Screen Reader Instructions
-1. Use `Ctrl + Alt + R` (NVDA) or `VO + U` (VoiceOver)
-2. Navigate by heading: `H` key
-3. Read full page: `Insert + Down Arrow`
-4. Jump to form: `F` key
-
 ---
-
-## 🐛 Troubleshooting
-
-### Issue 1: Survey Data Not Saving
-**Problem**: Data disappears after page reload
-```
-✓ Solution: Check if localStorage is enabled
-  - Open DevTools (F12)
-  - Go to Application > Local Storage
-  - Verify 'surveys' key exists
-  - Check browser privacy settings
-```
-
-### Issue 2: File Upload Not Working
-**Problem**: Upload button doesn't respond
-```
-✓ Solution: 
-  - Verify Formspree account is active
-  - Check file size (max 5MB)
-  - Allowed types: JPG, PNG, PDF only
-  - Check browser console for errors (F12)
-```
-
-### Issue 3: Styling Issues
-**Problem**: CSS not loading, page looks broken
-```
-✓ Solution:
-  - Hard refresh: Ctrl + Shift + R (Windows) or Cmd + Shift + R (Mac)
-  - Clear browser cache
-  - Check that all CSS files are in /styles folder
-  - Verify Bootstrap CDN link is active
-```
-
-### Issue 4: Reflection Button Not Working
-**Problem**: "Analyze My Mood" button doesn't show message
-```
-✓ Solution:
-  - Select an emotion from dropdown first
-  - Check browser console for JavaScript errors
-  - Try in different browser
-  - Clear localStorage: console.clear()
-```
-
-### Issue 5: Results Page Shows No Data
-**Problem**: Results page is empty
-```
-✓ Solution:
-  - Complete a survey on index.html or survey.html first
-  - Check localStorage has 'surveys' key
-  - In console: JSON.parse(localStorage.getItem('surveys'))
-  - Verify at least one emotion was selected
-```
-
-### Debug Mode
-```javascript
-// Open browser console (F12) and run:
-console.log('All surveys:', JSON.parse(localStorage.getItem('surveys')));
-console.log('Page URL:', window.location.href);
-console.log('Browser:', navigator.userAgent);
-```
 
 ### Contact Support
 - 📧 Email: cjayag80@gmail.com
@@ -571,27 +417,6 @@ contract PsycheAnalystRecord {
 
 ---
 
-## 📋 Development Guide
-
-### For Contributors
-
-#### Setting Up Development Environment
-```bash
-# 1. Clone repository
-git clone https://github.com/yourusername/psyche-analyst.git
-
-# 2. Navigate to project
-cd psyche-analyst
-
-# 3. Install dependencies (if using Node.js)
-npm install
-
-# 4. Start local server
-npm start
-# or
-python -m http.server 8000
-```
-
 #### Code Organization
 ```
 src/
@@ -647,21 +472,6 @@ async function fetchUserData() {
     console.error('Error:', err);
   }
 }
-```
-
-#### Git Workflow
-```bash
-# Create feature branch
-git checkout -b feature/ai-predictor
-
-# Commit with descriptive messages
-git commit -m "feat: add mood prediction using ML5.js"
-
-# Push to remote
-git push origin feature/ai-predictor
-
-# Create pull request on GitHub
-```
 
 #### Testing Checklist
 - [ ] All links functional
@@ -873,12 +683,6 @@ If you're experiencing:
 - Substance abuse
 - Trauma or PTSD
 
-**PLEASE CONTACT:**
-- 🚨 **National Suicide Prevention Lifeline**: 988 (US)
-- 🚨 **Crisis Text Line**: Text HOME to 741741
-- 🚨 **International Association for Suicide Prevention**: https://www.iasp.info/resources/Crisis_Centres/
-- 👨‍⚕️ **Your local mental health professional**
-
 ### Data Accuracy
 - Information provided is for educational purposes only
 - No guarantees about accuracy or completeness
@@ -937,4 +741,3 @@ Special thanks to:
 
 ---
 
-**Last Updated**: November 15, 2025

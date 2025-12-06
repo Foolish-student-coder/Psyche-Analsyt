@@ -502,13 +502,11 @@ body.angry-theme {
 
 
 
-/* --- 4. Laptop/Desktop View (min-width: 1024px) --- */
-/* For larger screens, we can create more complex layouts,
-  like a main content area and a sidebar.
-*/
+/*Laptop/Desktop View (min-width: 1024px) */
+
 @media (min-width: 1024px) {
     
-    /* Make Video and Survey sections side-by-side again */
+    /* Video and Survey sections side-by-side */
     .video-section {
         flex-basis: 40%;
     }
@@ -516,7 +514,7 @@ body.angry-theme {
         flex-basis: 58%;
     }
 
-    /* Make Strategies the main focus, with Portfolio as a sidebar */
+    
     .strategies-section {
         flex-basis: 65%; /* Main content area */
     }
@@ -525,7 +523,7 @@ body.angry-theme {
         flex-basis: 33%; /* Sidebar area */
     }
 
-    /* Make the strategy cards a 2x2 grid */
+    /* Strategy cards a 2x2 grid */
     .strategy-grid {
         display: grid;
         grid-template-columns: 1fr 1fr; /* Two cards per row */
@@ -533,7 +531,7 @@ body.angry-theme {
     }
 
     .strategy-card {
-        flex-basis: auto; /* Reset basis for grid */
+        flex-basis: auto; 
     }
 }
 }

@@ -452,7 +452,7 @@ h2:after {
   margin-bottom: 10px;
   opacity: 0.9;
 }
-
+/* Hover Effect */
 #feeling:hover {
   background-color: #CC6CE7;
 }
