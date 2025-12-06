@@ -211,42 +211,6 @@ Home (index.html)
 - **Contact**: Share thoughts → Provide feedback
 
 ---
-## ⌨️ Accessibility
-
-### Accessibility Features
-✅ **Screen Reader Support**
-- Semantic HTML5 elements
-- ARIA labels on forms
-- `role="contentinfo"` on footer
-- `aria-labelledby` on sections
-- `aria-describedby` on form inputs
-
-✅ **Keyboard Navigation**
-- All buttons & links fully keyboard accessible
-- Logical tab order
-- Focus indicators on interactive elements
-- Skip-to-main-content links
-
-✅ **Visual Accessibility**
-- High contrast text colors
-- Readable font sizes (minimum 16px)
-- Color-blind friendly palette
-- Animated elements can be reduced with `prefers-reduced-motion`
-
-✅ **Mobile Accessibility**
-- Touch-friendly button sizes (48px minimum)
-- Responsive viewport
-- Readable on zoom up to 200%
-
----
-
-### Contact Support
-- 📧 Email: cjayag80@gmail.com
-- 📝 Fill contact form: contact.html
-- 💬 Describe issue in detail
-- 📎 Include screenshot if possible
-
----
 
 ## 🔮 Future Implementations
 
@@ -472,18 +436,6 @@ async function fetchUserData() {
     console.error('Error:', err);
   }
 }
-
-#### Testing Checklist
-- [ ] All links functional
-- [ ] Forms submit correctly
-- [ ] Data persists in localStorage
-- [ ] Mobile responsive (320px-1920px)
-- [ ] Keyboard navigation works
-- [ ] Screen reader compatible
-- [ ] No console errors
-- [ ] CSS animations smooth
-- [ ] Images optimized
-- [ ] Page loads in < 3 seconds
 
 #### Browser Compatibility
 | Browser | Support |
