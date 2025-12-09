@@ -23,19 +23,46 @@
       </header>
     </div>
 
+    <!-- Navigation -->
     <nav id="navigation" role="navigation" aria-label="Primary">
-      <ul>
-        <li>
-          <a href="index.html">🏠Home</a> |
-          <a href="survey.html" aria-current="page">📜Surveys</a> |
-          <a href="results.html">📈Results</a> |
-          <a href="index.html#about-us-header">📝About</a> |
-          <a href="contact.html">📞Contact</a> |
-          <a href="media-graphic.html">🎨Media</a> |
-          <a href="Faq.html">❓FAQ</a>
-        </li>
-      </ul>
-    </nav>
+  <div class="nav-container">
+    
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="index.html">🏠Home</a></li>
+      <li><a href="survey.html">📜Survey</a></li>
+      <li><a href="results.html">📈Results</a></li>
+      <li><a href="index.html#about-us-header">📝About</a></li>
+      <li><a href="contact.html">📞Contact</a></li>
+      <li><a href="media-graphic.html">🎨Media</a></li>
+      <li><a href="Faq.html">❓FAQ</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<script>
+    const hamburger = document.getElementById('hamburger-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when a link is clicked
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
     <!-- Daily Survey Section -->
     <main aria-labelledby="survey-main-title">
       <h2 id="survey-main-title">Daily Check-in</h2>

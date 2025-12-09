@@ -21,46 +21,143 @@
 
 
 /* --- NAVIGATION BAR --- */
-#navigation {
-  background: linear-gradient(90deg, #f3e8ff, #e9d7fe);
-  color: black;
-  padding: 16px 0;
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
+/* To be prevent scrolling to the left and right x-axis */
+
+html, body {
+  overflow-x: clip; /* Modern fix that keeps sticky nav working */
   margin: 0;
-  cursor: pointer;
-  position: sticky;
-  top: 0;
+  padding: 0;
+}
+
+#navigation {
+  
+  background: linear-gradient(90deg, #f3e8ff, #e9d7fe);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
-  z-index: 10;
   background-blend-mode: overlay;
-  opacity: 0.6;
+  opacity: 0.95;
+  z-index: 1000;
+  
+  
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  
+
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
 }
-/* --Navigation for the unordered list */
+
+.nav-container {
+  display: flex;
+  justify-content: center; /* Justify-content in the centers links on desktop */
+  align-items: center;
+  padding: 16px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* unordered list styles */
 #navigation ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex; /* Horizontal on desktop */
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-/* --Para sa list nang navigation */
+
 #navigation li {
   display: inline;
   font-weight: bold;
 }
-/* The text of the navigation */
+
 #navigation a {
   color: black;
   text-decoration: none;
-  padding: 0 8px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 #navigation a:hover {
-  text-decoration: underline;
-  color:darkblue;
-  text-decoration-color: #3c1b7d;
+  background-color: rgba(60, 27, 125, 0.1); /* Soft purple hover bg */
+  color: #3c1b7d;
+  text-decoration: none;
+}
+
+/* HAMBURGER MENU STYLES */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background-color: #3c1b7d; 
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- MOBILE VIEW --- */
+@media screen and (max-width: 768px) {
   
+  .nav-container {
+    justify-content: flex-start; /* justify-content:flex-start ensures hamburger to left */
+  }
+
+  .hamburger {
+    display: block; /* Showing hamburger */
+    z-index: 1001;
+  }
+
+  /* Hamburger Animation to X ;) */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* The Dropdown Menu */
+  #navigation ul {
+    position: fixed;
+    top: 0;
+    left: -100%; /* -100 ensure that hide off-screen left */
+    flex-direction: column;
+    background: linear-gradient(135deg, #f3e8ff, #e9d7fe); /* Match theme */
+    width: 70%; /* Covers 70% of screen width */
+    height: 100vh; /* It is a full height */
+    padding-top: 80px;
+    transition: 0.4s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+  }
+
+  #navigation ul.active {
+    left: 0; /* Slide in */
+  }
+  
+  /* It is a way to make the links bigger on mobile */
+  #navigation li {
+    display: block;
+  }
+  
+  #navigation a {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+  }
 }
 
 
@@ -739,7 +836,4 @@ margin: 0 auto;
   margin-top: 20px;
 }
 
-/* To be prevent scrolling to the left and right x-axis */
-html, body {
-  overflow-x: hidden;
-}
+
