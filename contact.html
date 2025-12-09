@@ -12,27 +12,7 @@
   <link rel="stylesheet" href="styles/styles.css" media="all" />
 </head>
 <body>
-  <div class="container">
-    <div class="contact-box">
-      <div id="left"></div>
-      <div id="right">
-        <h2 id="MyHeader">📞 Contact Us</h2>
-
-        <form id="contactForm" action="https://formspree.io/f/xeovepyj" method="POST" enctype="multipart/form-data">
-          
-          <input type="hidden" name="_subject" value="New contact from Psyche Analyst website">
-          <input type="hidden" name="_next" value="thank-you.html">
-          <input type="text" name="name" class="field" placeholder="Your Name" required>
-          <input type="email" name="email" class="field" placeholder="Your Email" required>
-          <textarea name="message" class="field area" placeholder="Message" required></textarea>
-
-          <div id="attach-wrapper">
-            <!-- name attribute is required for Formspree to receive the file -->
-            <input type="file" name="fileUpload" id="attachment" class="attach-input"
-                   accept="image/jpg,image/png,.pdf">
-          </div>
-
-    <!-- Navigation -->
+      <!-- Navigation -->
     <nav id="navigation" role="navigation" aria-label="Primary">
   <div class="nav-container">
     
@@ -72,6 +52,27 @@
         });
     });
 </script>
+  <div class="container">
+    <div class="contact-box">
+      <div id="left"></div>
+      <div id="right">
+        <h2 id="MyHeader">📞 Contact Us</h2>
+
+        <form id="contactForm" action="https://formspree.io/f/xeovepyj" method="POST" enctype="multipart/form-data">
+          
+          <input type="hidden" name="_subject" value="New contact from Psyche Analyst website">
+          <input type="hidden" name="_next" value="thank-you.html">
+          <input type="text" name="name" class="field" placeholder="Your Name" required>
+          <input type="email" name="email" class="field" placeholder="Your Email" required>
+          <textarea name="message" class="field area" placeholder="Message" required></textarea>
+
+          <div id="attach-wrapper">
+            <!-- name attribute is required for Formspree to receive the file -->
+            <input type="file" name="fileUpload" id="attachment" class="attach-input"
+                   accept="image/jpg,image/png,.pdf">
+          </div>
+
+
 
           <!-- Survey fields -->
           <div id="survey">
